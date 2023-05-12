@@ -1,0 +1,120 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: inform
+  examples: |
+    - I want to run a fast [10000m](goaldistance)
+    - How fast can I run an [half marathon](goaldistance)
+    - Can I beat my PB in a [10k] road race(goaldistance)
+    - I want to break my personal best in the [3000] steeplechase(goaldistance)
+    - I want to run a [100 km] trail race(goaldistance)
+    - Is it possible for me to run under 6 minutes on the [2000 meters](goaldistance)
+    - faster in the [2 miles](goaldistance)
+    - How can I run a [mile] under 4'(goaldistance)
+    # - [5 kilometers](distance)
+    # - [mile](distance)
+    # - [800 m](distance)
+    # - [10.000m](distance)
+    - Is it possible for me to run under [6 minutes] on the 2000 meters(goaltime)
+    - I want to run under [30'] in the 10000m(goaltime)
+    - How can I run an half-marathon under [2 and a half hours](goaltime)
+    - Is it possible for me to break the [2h23m] barrier in the marathon(goaltime)
+    - Can you help me run under [8'30''] in the 3000m(goaltime)
+    - I want to be faster than [2m40s] in a 1000m race(goaltime)
+    - break [3 hours](goaltime)
+    # - [2h](time)
+    # - [2h10'](time)
+    # - [2h23m](time)
+    # - [9h 55m 23s](time)
+    # - [3h 34m](time)
+    # - [56''](time)
+    # - [two hours and thirty minutes](time)
+    
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
