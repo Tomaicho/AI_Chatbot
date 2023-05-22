@@ -16,6 +16,8 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - ahoj
+    - ciao
 
 - intent: goodbye
   examples: |
@@ -29,35 +31,29 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - thanks, bye
 
 - intent: inform
   examples: |
     - I want to run a fast [10000m](goaldistance)
-    - How fast can I run an [half marathon](goaldistance)
-    - Can I beat my PB in a [10k] road race(goaldistance)
-    - I want to break my personal best in the [3000] steeplechase(goaldistance)
-    - I want to run a [100 km] trail race(goaldistance)
-    - Is it possible for me to run under 6 minutes on the [2000 meters](goaldistance)
+    - how fast can I run an [half marathon](goaldistance)
+    - can I beat my PB of [9h 55m 23s](goaltime) in a [10k](goaldistance) road race
+    - I want to break my personal best of [3h 34m](goaltime) in the [3000](goaldistance) steeplechase
+    - I want to run a [100 km](goaldistance) [trail race](racetype)
+    - is it possible for me to run under 6 minutes on the [2000 meters](goaldistance)
     - faster in the [2 miles](goaldistance)
-    - How can I run a [mile] under 4'(goaldistance)
-    # - [5 kilometers](distance)
-    # - [mile](distance)
-    # - [800 m](distance)
-    # - [10.000m](distance)
-    - Is it possible for me to run under [6 minutes] on the 2000 meters(goaltime)
-    - I want to run under [30'] in the 10000m(goaltime)
-    - How can I run an half-marathon under [2 and a half hours](goaltime)
-    - Is it possible for me to break the [2h23m] barrier in the marathon(goaltime)
-    - Can you help me run under [8'30''] in the 3000m(goaltime)
-    - I want to be faster than [2m40s] in a 1000m race(goaltime)
+    - how can I run a [mile](goaldistance) under 4'
+    - the race distance is [5 kilometers](goaldistance)
+    - is it possible for me to run under [6 minutes](goaltime) on the 2000 meters
+    - I want to run under [30'](goaltime) in the 10000m
+    - how can I run an half-marathon under [2 and a half hours](goaltime)
+    - is it possible for me to break the [2h23m](goaltime) barrier in the marathon
+    - can you help me run under [8'30''](goaltime) in the 3000m
+    - I want to be faster than [2m40s](goaltime) in a 1000m race
     - break [3 hours](goaltime)
-    # - [2h](time)
-    # - [2h10'](time)
-    # - [2h23m](time)
-    # - [9h 55m 23s](time)
-    # - [3h 34m](time)
-    # - [56''](time)
-    # - [two hours and thirty minutes](time)
+    - my goal is to go below [two hours and thirty minutes](goaltime)
+
+
     
 - intent: affirm
   examples: |

@@ -13,6 +13,24 @@ intents:
 entities:
   - goaltime
   - goaldistance
+  - racetype
+
+slots:
+  - goaltime:
+    type: text
+    autofill: False
+
+  - goaldistance:
+    type: text
+    autofill: False
+
+  - racetype:
+    type: categorical
+    values:
+    - track
+    - road
+    - trail
+    autofill: False
 
 responses:
   utter_greet:
@@ -27,6 +45,31 @@ responses:
 
   utter_happy:
   - text: "Great, carry on!"
+
+  utter_ask_distance:
+  - text: "What distance do you want to run?"
+  - text: "How long is the race?"
+  - text: " In order to set the training plan, I need to know what distance you want to run."
+
+  utter_ask_goaltime:
+  - text: "How fast do you want to run?"
+  - text: "What's your goal time?"
+  - text: "To better define the training plan, I need to know how fast you want to run."
+
+  utter_ask_racetype:
+  - text: "What type of race is it? Road, track, or trail?"
+
+  utter_ask_PB:
+  - text: "Do you have a previous PB in this distance?"
+  - text: "What is your previous PB in the distance?"
+
+  utter_ask_time_left:
+  - text: "How long until the race?"
+  - text: "How much time is left until the race?"
+  - text: "How much time do you have to prepare for the race?"
+
+  utter_ask_current_form:
+  - text: "How good is your current form? For example, how fast can you run 1000m or 10km right now?"
 
   utter_goodbye:
   - text: "Bye"
