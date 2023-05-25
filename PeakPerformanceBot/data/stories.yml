@@ -2,29 +2,35 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: quick_informer
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - action: utter_how_can_i_help
+  - intent: inform
+    entities:
+    - goaldistance: "10"
+    - unitdistance: "km"
+    - goaltime: "30"
+    - racetype: "flat"
+  - action: utter_hard_road_goal
+  - action: utter_ask_current_form_road
 
-- story: sad path 1
+- story: quick_informer 2
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - action: utter_how_can_i_help
+  - intent: inform
+    entities:
+    - goaldistance: "50 km"
+    - goaltime: "10h"
+    - racetype: "trail"
+  - action: utter_ask_ascent
+  - intent: inform_ascent
+    entities:
+    - ascent: "4000"
+  - action: utter_ask_descent
+  - intent: inform_descent
+    entities:
+    - descent: "3500"
+  - action: utter_hard_trail_goal
+  - action: utter_ask_current_form_road

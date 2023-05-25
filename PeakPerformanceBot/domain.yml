@@ -1,82 +1,118 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - inform
-
+- affirm
+- bot_challenge
+- deny
+- goodbye
+- greet
+- inform
+- mood_great
+- mood_unhappy
 entities:
-  - goaltime
-  - goaldistance
-  - racetype
-
+- goalhours
+- goalminutes
+- goalseconds
+- goaldistance
+- goaldistanceunit
+- racetype
+- pb
+- time_left
+- time_left_unit
+- current_form
+- ascent
+- descent
 slots:
-  - goaltime:
+  goalminutes:
     type: text
-    autofill: False
-
-  - goaldistance:
+    mappings:
+    - type: from_entity
+      entity: goalminutes
+  goalhours:
     type: text
-    autofill: False
-
-  - racetype:
+    mappings:
+    - type: from_entity
+      entity: goalhours
+  goalseconds:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: goalseconds
+  goaldistance:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: goaldistance
+  goaldistanceunit:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: goaldistanceunit
+  racetype:
     type: categorical
+    influence_conversation: true
     values:
-    - track
-    - road
+    - flat
     - trail
-    autofill: False
-
+    mappings:
+    - type: from_entity
+      entity: racetype
+  current_form:
+    type: categorical
+    influence_conversation: true
+    values:
+    - good
+    - bad
+    mappings:
+    - type: from_entity
+      entity: current_form
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
+  - text: Hey! How are you?
+  utter_how_can_i_help:
+  - text: How can I help you?
+  - text: I'm here to help you. Tell me what your goal is.
+  - text: Which race do you want to run?
   utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
+  - text: Did that help you?
   utter_ask_distance:
-  - text: "What distance do you want to run?"
-  - text: "How long is the race?"
-  - text: " In order to set the training plan, I need to know what distance you want to run."
-
+  - text: What distance do you want to run?
+  - text: How long is the race?
+  - text: ' In order to set the training plan, I need to know what distance you want to run.'
   utter_ask_goaltime:
-  - text: "How fast do you want to run?"
-  - text: "What's your goal time?"
-  - text: "To better define the training plan, I need to know how fast you want to run."
-
+  - text: How fast do you want to run?
+  - text: What's your goal time?
+  - text: To better define the training plan, I need to know how fast you want to run.
   utter_ask_racetype:
-  - text: "What type of race is it? Road, track, or trail?"
-
+  - text: What type of race is it? Road, track, or trail?
   utter_ask_PB:
-  - text: "Do you have a previous PB in this distance?"
-  - text: "What is your previous PB in the distance?"
-
+  - text: Do you have a previous PB in this distance?
+  - text: What is your previous PB in the distance?
   utter_ask_time_left:
-  - text: "How long until the race?"
-  - text: "How much time is left until the race?"
-  - text: "How much time do you have to prepare for the race?"
-
-  utter_ask_current_form:
-  - text: "How good is your current form? For example, how fast can you run 1000m or 10km right now?"
-
+  - text: How long until the race?
+  - text: How much time is left until the race?
+  - text: How much time do you have to prepare for the race?
+  utter_ask_current_form_road:
+  - text: How good is your current form? For example, how fast can you run 1000m or 10km flat right now?
+  utter_hard_road_goal:
+  - text: That is a tough goal, but I'm certain you'll achieve it with the right mindset and my help.
+  utter_hard_trail_goal:
+  - text: That is a tough goal, but I'm certain you'll achieve it with the right mindset and my help.
+  utter_ask_ascent:
+  - text: How many uphill meters are there on total in the race?
+  - text: How many ascent meters are there in total?
+  - text: How much total climb up is there in the race?
+  utter_ask_descent:
+  - text: How many downhill meters are there in the race?
+  - text: How many descent meters are there in total?
   utter_goodbye:
-  - text: "Bye"
-
+  - text: Bye
+  - text: Chi vediamo
+  - text: Goodbye and good luck
+  - text: God speed
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
+  - text: I am a bot, powered by Rasa.
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

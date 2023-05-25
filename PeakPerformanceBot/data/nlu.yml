@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
 - intent: greet
   examples: |
@@ -18,7 +17,6 @@ nlu:
     - good afternoon
     - ahoj
     - ciao
-
 - intent: goodbye
   examples: |
     - cu
@@ -32,85 +30,120 @@ nlu:
     - bye bye
     - see you later
     - thanks, bye
-
 - intent: inform
   examples: |
-    - I want to run a fast [10000m](goaldistance)
+    - can I beat my PB of [9](goalhours)h [55](goalminutes)m [23](goalseconds)s in a [10](goaldistance)[k](goaldistanceunit) [road](racetype) race
+    - I want to break my personal best of [3](goalhours)h [34](goalminutes)m in the [3000](goaldistance)[m](goaldistanceunit)
+    - I want to run a [100](goaldistance) [km](goaldistanceunit) [trail](racetype) race
+    - how can I run [1500](goaldistance)[m](goaldistanceunit) under [4](goalminutes)'
+    - is it possible for me to run under [6](goalminutes) minutes on the [2000](goaldistance) [meters](goaldistanceunit)
+    - I want to run under [30](goalminutes)' in a [10000](goaldistance)[m](goaldistance) [flat](racetype) race
+    - how can I run an [half-marathon](goaldistance) under [2](goalhours) hours and [30](goalminutes) minutes
+    - is it possible for me to break the [2](goalhours):[23](goalminutes)m barrier in the [marathon](goaldistance)
+    - can you help me run under [8](goalminutes)'[30](goalseconds)'' in the [3000](goaldistance)[m](goaldistanceunit)
+    - I want to be faster than [2](goalminutes)m[40](goalseconds)s in a [1000](goaldistance)[m](goaldistanceunit) race
+    - break [3](goalhours) hours
+    - the goal must be beating my last mark of [2](goalhours)h[8](goalminutes)'[30](goalseconds)''
+    - my goal is to go below [two](goalhours) hours and [thirty](goalminutes) minutes
+    - I want to run a fast [10000](goaldistance)[m](goaldistanceunit)
     - how fast can I run an [half marathon](goaldistance)
-    - can I beat my PB of [9h 55m 23s](goaltime) in a [10k](goaldistance) road race
-    - I want to break my personal best of [3h 34m](goaltime) in the [3000](goaldistance) steeplechase
-    - I want to run a [100 km](goaldistance) [trail race](racetype)
-    - is it possible for me to run under 6 minutes on the [2000 meters](goaldistance)
-    - faster in the [2 miles](goaldistance)
-    - how can I run a [mile](goaldistance) under 4'
-    - the race distance is [5 kilometers](goaldistance)
-    - is it possible for me to run under [6 minutes](goaltime) on the 2000 meters
-    - I want to run under [30'](goaltime) in the 10000m
-    - how can I run an half-marathon under [2 and a half hours](goaltime)
-    - is it possible for me to break the [2h23m](goaltime) barrier in the marathon
-    - can you help me run under [8'30''](goaltime) in the 3000m
-    - I want to be faster than [2m40s](goaltime) in a 1000m race
-    - break [3 hours](goaltime)
-    - my goal is to go below [two hours and thirty minutes](goaltime)
+    - the race distance is [5](goaldistance) kilometers](goaldistanceunit)
+    - it is a [flat](racetype) race
+    - it will be a [trail](racetype) running event
+    - I am going to run on the [flat](racetype)
+    - [flat](racetype)
+    - [trail](racetype)
+    - it is a [flat](racetype) competition
+    - [3 months](time_left)
+    - I still have [4](time_left) [weeks](time_left_unit) until the competition
+    - still [1](time_left) [year](time_left_unit) to go
+    - in exactly [35](time_left) [days](time_left_units)
+    - the race will be in [6](time_left) [months](time_left_unit) time
+    - around [6](time_left) [weeks](time_left_unit) left
+    - I want to beat my personal best of [1](goalhours) hour and [45](goalminutes) minutes in a [10](goaldistance)[k](goaldistanceunit) race.
+    - can you help me run a [marathon](goaldistance) in under [4](goalhours) hours?
+    - I aim to finish a [half-marathon](goaldistance) in less than [2](goalhours) hours and [10](goalminutes) minutes.
+    - how can I improve my time for a [5](goaldistance)[km](goaldistanceunit) race?
+    - I want to run a [10](goaldistance)[miles](goaldistanceunit) race and achieve a time of under [1](goalhours) hour and [30](goalminutes) minutes.
+    - is it possible for me to run a [5](goaldistance)[km](goaldistanceunit) race in under [25](goalminutes) minutes?
+    - how can I prepare to run a [10](goaldistance)[km](goaldistanceunit) race in [2](time_left) [months](time_left_unit)' time?
+    - I have [8](time_left) [weeks](time_left_unit) left until my race. What should my training plan be?
+    - the competition is in [3](time_left) [days](time_left_unit). What should my tapering strategy be?
 
-
-    
-- intent: affirm
+- intent: inform_ascent
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
+    - it will have [2000](ascent) meters of ascent
+    - a total of [4500](ascent) positive climb
+    - we're gonna go up [1000](ascent) meters
+    - there are [2300](ascent) meters of climb in total
+    - the toal hillclimb sums up to [1500](ascent) meters
+    - [4600](ascent)m+
+- intent: inform_ascent
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
+    - it will have a total of [2000](descent) meters of descent.
+    - the race course includes [4500](descent) meters of downhill.
+    - we're gonna go down [1000](descent) meters during the race.
+    - there are approximately [2300](descent) meters of descent in total.
+    - [4600](descent)m-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- synonym: m
+  examples: |
+    - meters
+    - met
+    - meter
+- synonym: km
+  examples: |
+    - kilometer
+    - kilometers
+    - kms
+    - km's
+- synonym: h
+  examples: |
+    - hours
+    - hour
+    - hrs
+- synonym: min
+  examples: |
+    - m
+    - '
+    - minute
+    - minutes
+    - mins
+- synonym: s
+  examples: |
+    - second
+    - seconds
+    - ''
+    - sec
+    - secs
+- synonym: +
+  examples: |
+    - positive
+    - ascent
+    - climb up
+    - climb
+    - uphill
+- synonym: '-'
+  examples: |
+    - negative
+    - descent
+    - downhill
+    - climb down
+- synonym: month
+  examples: |
+    - months
+- synonym: day
+  examples: |
+    - days
+- synonym: year
+  examples: |
+    - years
+- synonym: flat
+  examples: |
+    - track
+    - road
