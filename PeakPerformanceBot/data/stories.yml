@@ -28,9 +28,9 @@ stories:
   - intent: inform_ascent
     entities:
     - ascent: "4000"
+  - action: calculate_trail_climb
   - action: utter_ask_descent
   - intent: inform_descent
     entities:
     - descent: "3500"
-  - action: utter_hard_trail_goal
   - action: utter_ask_current_form_road

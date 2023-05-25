@@ -8,6 +8,8 @@ intents:
 - inform
 - mood_great
 - mood_unhappy
+- inform_descent
+- inform_ascent
 entities:
 - goalhours
 - goalminutes
@@ -21,6 +23,8 @@ entities:
 - current_form
 - ascent
 - descent
+actions:
+- calculate_trail_climb
 slots:
   goalminutes:
     type: text
@@ -67,6 +71,12 @@ slots:
     mappings:
     - type: from_entity
       entity: current_form
+  ascent:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: ascent
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -97,8 +107,10 @@ responses:
   - text: How good is your current form? For example, how fast can you run 1000m or 10km flat right now?
   utter_hard_road_goal:
   - text: That is a tough goal, but I'm certain you'll achieve it with the right mindset and my help.
-  utter_hard_trail_goal:
-  - text: That is a tough goal, but I'm certain you'll achieve it with the right mindset and my help.
+  utter_big_climb:
+  - text: That's a lot of climb! I'll take that into account on the training plan. Be ready to work on your uphill technic and strength.
+  utter_small_climb:
+  - text: Looks like a quite flat course. We'll work a bit more on your speed then.
   utter_ask_ascent:
   - text: How many uphill meters are there on total in the race?
   - text: How many ascent meters are there in total?

@@ -30,6 +30,26 @@ nlu:
     - bye bye
     - see you later
     - thanks, bye
+- intent: i_want_to_run
+  examples: |
+    - I want to run
+    - I need your help to prepare for a race
+    - I want to get better in running
+
+- intent: ask_for_help
+  examples: |
+    - can you help me run faster on my next race?
+    - are you able to make me run faster?
+    - do you have some good training plans for me?
+
+- intent: recreational_runner
+  examples: |
+    - I just want to improve my physical shape in general
+    - I don't want to break any records
+    - just want to have some fun running
+    - I don't want to race, I am only a recreational runner
+
+
 - intent: inform
   examples: |
     - can I beat my PB of [9](goalhours)h [55](goalminutes)m [23](goalseconds)s in a [10](goaldistance)[k](goaldistanceunit) [road](racetype) race
@@ -78,7 +98,7 @@ nlu:
     - there are [2300](ascent) meters of climb in total
     - the toal hillclimb sums up to [1500](ascent) meters
     - [4600](ascent)m+
-- intent: inform_ascent
+- intent: inform_descent
   examples: |
     - it will have a total of [2000](descent) meters of descent.
     - the race course includes [4500](descent) meters of downhill.
