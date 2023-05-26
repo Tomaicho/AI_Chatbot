@@ -23,12 +23,14 @@ class calculateTrailClimb(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         distance = next(tracker.get_latest_entity_values("goaldistance"), None)
         uphill = tracker.get_slot("ascent")
+        downhill = tracker.get_slot("descent")
         distance_unit = next(tracker.get_latest_entity_values("goaldistanceunit"), None)
 
         if not uphill:
             msg = "To define the best training plan I need to know the total uphill climb of the race."
             dispatcher.utter_message(text=msg)
             return []
+        
 
         if distance_unit == "m":
             distance = int(distance)

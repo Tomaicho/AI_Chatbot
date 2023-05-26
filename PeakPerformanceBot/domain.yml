@@ -77,6 +77,15 @@ slots:
     mappings:
     - type: from_entity
       entity: ascent
+
+forms:
+  race_info_form:
+    ignored_intents: 
+    - chitchat
+    required_slots:
+        - goaldistance
+        - goaldistanceunit
+        - 
 responses:
   utter_greet:
   - text: Hey! How are you?

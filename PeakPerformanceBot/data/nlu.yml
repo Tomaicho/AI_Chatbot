@@ -30,6 +30,36 @@ nlu:
     - bye bye
     - see you later
     - thanks, bye
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you a person or a bot?
+    - who are you?
+- intent: chitchat/how_are_you
+  examples: |
+    - How are you?
+    - How's it going?
+    - How are things?
+    - How's your day?
+- intent: chitchat/jokes
+  examples: |
+    - Tell me a joke
+    - Do you know any jokes?
+    - Share a funny joke
+    - I need a good laugh
+- intent: chitchat/emotions
+  examples: |
+    - I'm happy
+    - I'm sad
+    - I'm excited
+    - I'm angry
+- intent: chitchat/ask_name
+  examples: |
+    - What's your name?
+    - May I know your name?
 - intent: i_want_to_run
   examples: |
     - I want to run
@@ -48,7 +78,9 @@ nlu:
     - I don't want to break any records
     - just want to have some fun running
     - I don't want to race, I am only a recreational runner
-
+    - I will go to the race just for fun
+    - I don't worry about the time
+    - I don't worry about my performance
 
 - intent: inform
   examples: |
@@ -67,6 +99,7 @@ nlu:
     - my goal is to go below [two](goalhours) hours and [thirty](goalminutes) minutes
     - I want to run a fast [10000](goaldistance)[m](goaldistanceunit)
     - how fast can I run an [half marathon](goaldistance)
+    - I want to run a [trail](racetype) with [100](goaldistance)[km](goaldistanceunit)
     - the race distance is [5](goaldistance) kilometers](goaldistanceunit)
     - it is a [flat](racetype) race
     - it will be a [trail](racetype) running event
@@ -105,12 +138,7 @@ nlu:
     - we're gonna go down [1000](descent) meters during the race.
     - there are approximately [2300](descent) meters of descent in total.
     - [4600](descent)m-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+
 - synonym: m
   examples: |
     - meters

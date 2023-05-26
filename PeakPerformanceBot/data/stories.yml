@@ -34,3 +34,25 @@ stories:
     entities:
     - descent: "3500"
   - action: utter_ask_current_form_road
+
+- story: quick_informer 3
+  steps:
+  - intent: inform
+    entities:
+    - goaldistance: "50 km"
+    - goaltime: "10h"
+    - racetype: "trail"
+  - action: utter_ask_ascent
+  - intent: inform_ascent
+    entities:
+    - ascent: "4000"
+  - action: calculate_trail_climb
+  - action: utter_ask_descent
+  - intent: inform_descent
+    entities:
+    - descent: "3500"
+  - action: utter_ask_current_form_road
+
+- story: User interrupts trail climb informing
+  steps:
+  
