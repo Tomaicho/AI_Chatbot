@@ -25,6 +25,7 @@ entities:
 - descent
 actions:
 - calculate_trail_climb
+- check_info
 slots:
   goalminutes:
     type: text
@@ -97,6 +98,7 @@ forms:
     required_slots:
         - goaldistance
         - goaldistanceunit
+        - racetype
 responses:
   utter_greet:
   - text: Hey! How are you?

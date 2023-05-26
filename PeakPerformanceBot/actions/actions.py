@@ -30,7 +30,7 @@ class calculateTrailClimb(Action):
             msg = "To define the best training plan I need to know the total uphill climb of the race."
             dispatcher.utter_message(text=msg)
             return []
-        
+
 
         if distance_unit == "m":
             distance = int(distance)
@@ -44,4 +44,22 @@ class calculateTrailClimb(Action):
             dispatcher.utter_message(response = "utter_big_climb")
         else:
             dispatcher.utter_message(response = "utter_small_climb")
+        return []
+
+class checkInfo(Action):
+    def name(self) -> Text:
+        return "check_info"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        goal_hours = tracker.get_slot("goalhours")
+        goal_minutes = tracker.get_slot("goalminutes")
+        goal_seconds = tracker.get_slot("goalseconds")
+        
+        while goal_hours == None and goal_minutes == None and goal_seconds == None:
+            dispatcher.utter_message(response="utter_ask_goaltime")
+            goal_hours = tracker.get_slot("goalhours")
+            goal_minutes = tracker.get_slot("goalminutes")
+            goal_seconds = tracker.get_slot("goalseconds")
         return []
