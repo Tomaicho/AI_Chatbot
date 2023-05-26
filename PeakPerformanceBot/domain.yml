@@ -2,21 +2,23 @@ version: '3.1'
 intents:
 - affirm
 - bot_challenge
+- chitchat:
+    is_retrieval_intent: true
 - deny
 - goodbye
 - greet
 - inform
+- inform_ascent
+- inform_descent
 - mood_great
 - mood_unhappy
-- inform_descent
-- inform_ascent
 entities:
+- racetype
+- goaldistance
 - goalhours
+- goaldistanceunit
 - goalminutes
 - goalseconds
-- goaldistance
-- goaldistanceunit
-- racetype
 - pb
 - time_left
 - time_left_unit
@@ -24,8 +26,15 @@ entities:
 - ascent
 - descent
 actions:
+- utter_ask_goaltime
+- utter_how_can_i_help
+- utter_greet
+- utter_ask_racetype
+- utter_ask_PB
 - calculate_trail_climb
 - check_info
+- utter_chitchat
+- utter_ask_distance_time
 slots:
   goalminutes:
     type: text
@@ -90,15 +99,23 @@ slots:
     mappings:
     - type: from_entity
       entity: time_left_unit
-
+  pb:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: pb
 forms:
   race_info_form:
-    ignored_intents: 
+    ignored_intents:
     - chitchat
     required_slots:
-        - goaldistance
-        - goaldistanceunit
-        - racetype
+    - goaldistance
+    - goaldistanceunit
+    - racetype
+    - goaldistance
+    - goaldistanceunit
+    - racetype
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -117,7 +134,9 @@ responses:
   utter_ask_distance:
   - text: What distance do you want to run?
   - text: How long is the race?
-  - text: ' In order to set the training plan, I need to know what distance you want to run.'
+  - text: In order to set the training plan, I need to know what distance you want to run.
+  utter_ask_distance_unit:
+  - text: In what unit is distance given? Meters or kilometers?
   utter_ask_goaltime:
   - text: How fast do you want to run?
   - text: What's your goal time?
@@ -153,6 +172,8 @@ responses:
   - text: God speed
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
+  utter_ask_distance_time:
+  - How long and what distance do you want to run?
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

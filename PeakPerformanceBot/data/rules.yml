@@ -21,3 +21,18 @@ rules:
   steps:
   - intent: i_want_to_run
   - action: utter_i_want_to_run
+
+# - rule: Maintain goaltime_form until time is given
+#   - active_loop: goaltime_form
+#   steps:
+#   # Form is deactivated
+#   - action: goaltime_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - or:
+#       - goalhours
+#       - goalminutes
+#       - goalseconds
+#   # The actions we want to run when the form is submitted.
+#   - action: utter_submit
+#   - action: utter_slots_values

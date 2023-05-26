@@ -11,6 +11,7 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
 
 
 class calculateTrailClimb(Action):
@@ -55,12 +56,19 @@ class checkInfo(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         goal_hours = tracker.get_slot("goalhours")
         goal_minutes = tracker.get_slot("goalminutes")
-        goal_seconds = tracker.get_slot("goalseconds")
-        
-        while goal_hours is None and goal_minutes is None and goal_seconds is None:
-            dispatcher.utter_message(response="utter_ask_goaltime")
-            latest_user_message = tracker.latest_message.get('text')
-            goal_hours = tracker.get_slot("goalhours")
-            goal_minutes = tracker.get_slot("goalminutes")
-            goal_seconds = tracker.get_slot("goalseconds")
+        goal_seconds = tracker.get_slot("goalseconds") 
+
+        if goal_hours is not None or goal_minutes is not None or goal_seconds is not None:
+            dispatcher.utter_message(text=f"Thank you")
+        else:
+            dispatcher.utter_message(text=f"Please provide the time.")
+            goalhours = next(tracker.get_latest_entity_values("goalhours"), None)
+            goalminutes = next(tracker.get_latest_entity_values("goalminutes"), None)
+            goalseconds = next(tracker.get_latest_entity_values("goalseconds"), None)
+            if goalhours != None:
+                SlotSet("goalhours", goalhours)
+            if goalminutes != None:
+                SlotSet("goalminutes", goalminutes)
+            if goalminutes != None:
+                SlotSet("goalseconds", goalseconds)
         return []

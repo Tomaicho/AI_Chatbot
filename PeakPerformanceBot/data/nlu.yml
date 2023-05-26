@@ -65,13 +65,11 @@ nlu:
     - I want to run
     - I need your help to prepare for a race
     - I want to get better in running
-
 - intent: ask_for_help
   examples: |
     - can you help me run faster on my next race?
     - are you able to make me run faster?
     - do you have some good training plans for me?
-
 - intent: recreational_runner
   examples: |
     - I just want to improve my physical shape in general
@@ -81,7 +79,6 @@ nlu:
     - I will go to the race just for fun
     - I don't worry about the time
     - I don't worry about my performance
-
 - intent: inform
   examples: |
     - can I beat my PB of [9](goalhours)h [55](goalminutes)m [23](goalseconds)s in a [10](goaldistance)[k](goaldistanceunit) [road](racetype) race
@@ -122,7 +119,9 @@ nlu:
     - how can I prepare to run a [10](goaldistance)[km](goaldistanceunit) race in [2](time_left) [months](time_left_unit)' time?
     - I have [8](time_left) [weeks](time_left_unit) left until my race. What should my training plan be?
     - the competition is in [3](time_left) [days](time_left_unit). What should my tapering strategy be?
-
+    - i want to run [100](goaldistance) [km](goaldistanceunit)
+    - I want to complete the race in less than [10](goalhours) hours
+    - It is a [road]{"entity": "racetype", "value": "flat"} race
 - intent: inform_ascent
   examples: |
     - it will have [2000](ascent) meters of ascent
@@ -138,7 +137,19 @@ nlu:
     - we're gonna go down [1000](descent) meters during the race.
     - there are approximately [2300](descent) meters of descent in total.
     - [4600](descent)m-
-
+- intent: inform_pb
+  examples: |
+    - my previous PB in the marathon was [3](pb_hours)h[45](pb_minutes)'[12](pb_seconds)''
+    - I ran the 10K race in [42](pb_minutes) minutes and [30](pb_seconds) seconds, which is my best time so far
+    - in the half marathon, I finished in [1](pb_hours) hour, [30](pb_minutes) minutes, and [15](pb_seconds) seconds, setting a new PB
+    - my PB for the 5K is around [20](pb_minutes) minutes
+    - I completed the 8 km race in [55](pb_minutes) minutes, my fastest time ever
+    - I ran the 10 kilometers in under [30](pb_minutes)m[57](pb_seconds)s, which is my current PB
+    - I finished the marathon in [4](pb_hours) hours and [10](pb_minutes) minutes, setting a new PB
+    - my best time in the half marathon is [1](pb_hours)h[50](pb_minutes)min
+    - I achieved my PB last year with a time of [50](pb_minutes)'
+    - my fastest time ever is [2](pb_hours) hours and [15](pb_minutes) minutes
+    - my current best is [8](pb_minutes)'[35](pb_seconds)''
 - synonym: m
   examples: |
     - meters
