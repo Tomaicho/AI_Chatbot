@@ -1,24 +1,25 @@
 import json, re
 
-def add_to_dic(dic, train, train_type):
-    dic[train_type][train[0]] = {}
-    dic[train_type][train[0]]['Mon'] = train[1]
-    dic[train_type][train[0]]['Tue'] = train[2]
-    dic[train_type][train[0]]['Wed'] = train[3]
-    dic[train_type][train[0]]['Thu'] = train[4]
-    dic[train_type][train[0]]['Fri'] = train[5]
-    dic[train_type][train[0]]['Sat'] = train[6]
-    dic[train_type][train[0]]['Sun'] = train[7]
+def add_to_dic(dic, train_info, train_type):
+    train = {}
+    train['Mon'] = train_info[1]
+    train['Tue'] = train_info[2]
+    train['Wed'] = train_info[3]
+    train['Thu'] = train_info[4]
+    train['Fri'] = train_info[5]
+    train['Sat'] = train_info[6]
+    train['Sun'] = train_info[7]
+    dic[train_type].append(train)
     return dic
 
-file = open('./download_train/data.txt', 'r', encoding='utf-8')
+file = open('./AI_Chatbot/PeakPerformanceBot/download_train/data.txt', 'r', encoding='utf-8')
 text = file.read();
 file.close()
 
 train_dic = {}
-train_dic['easy'] = {}
-train_dic['moderate'] = {}
-train_dic['hard'] = {}
+train_dic['easy'] = []
+train_dic['moderate'] = []
+train_dic['hard'] = []
 for train in re.findall(r"(.+)\n. - (.+)\n. - (.+)\n. - (.+)\n. - (.+)\n. - (.+)\n. - (.+)\n. - (.+)\n", text):
     train_info = re.search(r"(.+?) h.+?[,-] (.+?) km", train[0])
     train_hours = float(train_info[1])
@@ -38,6 +39,6 @@ for train in re.findall(r"(.+)\n. - (.+)\n. - (.+)\n. - (.+)\n. - (.+)\n. - (.+)
     
 
 print(f"Easy: {len(train_dic['easy'])}; Moderate: {len(train_dic['moderate'])}; Hard: {len(train_dic['hard'])}")
-file = open('./download_train/db.json', 'w', encoding='utf-8')
+file = open('./AI_Chatbot/PeakPerformanceBot/download_train/db.json', 'w', encoding='utf-8')
 json.dump(train_dic, file, ensure_ascii=False, indent=4)
 file.close()

@@ -1,6 +1,6 @@
 {
-    "easy": {
-        "8 h 49 m - 111.3 km (69.2 mi) - 2730 m": {
+    "easy": [
+        {
             "Mon": "25 E / 50 E",
             "Tue": "30 S&C",
             "Wed": "35 w/ 6 x 15 s strides / 50 w/ 4 x 70 s strides",
@@ -9,7 +9,7 @@
             "Sat": "25 k (2h)",
             "Sun": "35 E"
         },
-        "9 h 21 m - 126.6 km (78.7 mi) - 1040 m": {
+        {
             "Mon": "55 E",
             "Tue": "30 S&C / 35 E / 65 E",
             "Wed": "35 E w/ 8 x 15 s strides",
@@ -18,7 +18,7 @@
             "Sat": "30 E / 12 Stage Road Relays",
             "Sun": "2h Long run"
         },
-        "5 h 25 m - 71.1 km (44.2 mi) - 540 m (1770 ft)": {
+        {
             "Mon": "45 E",
             "Tue": "35 E w/ 8 x 10 s hills / 2 mi, 1 mi, 3 x 400 (10:09, 4:41, 66, 63, 61)",
             "Wed": "50 E / 40 E",
@@ -27,7 +27,7 @@
             "Sat": "45 E (very easy)",
             "Sun": "Rest"
         },
-        "7 h 19 m - 96.1 km (59.7 mi) - 1476 m (4840 ft)": {
+        {
             "Mon": "30 E / 20 S&C / 30 E",
             "Tue": "35 E ć 6 x 12 s hill strides / Rest",
             "Wed": "Rest",
@@ -36,7 +36,7 @@
             "Sat": "60 E hilly / 30 E & 20 S&C",
             "Sun": "95 E"
         },
-        "8 h 19 m - 113.5 km (70.5 mi) - 935 m (3070 ft)": {
+        {
             "Mon": "50 Easy (E)",
             "Tue": "Rest",
             "Wed": "Rest",
@@ -45,9 +45,9 @@
             "Sat": "80 E",
             "Sun": "2:20 E / 20 S&C"
         }
-    },
-    "moderate": {
-        "11 h 14 m - 153.1 km (95.1 mi) - 1465 m (+ 1 h X-training)": {
+    ],
+    "moderate": [
+        {
             "Mon": "65 E",
             "Tue": "40 E w/ 4 x 15 s strides / 3 x [1600 (60), 400 (45)]",
             "Wed": "70 E / 30 S&C / 40 E",
@@ -56,7 +56,7 @@
             "Sat": "2 h 20 m steady long run w/ 10 x 1 (2) strides",
             "Sun": "65 E"
         },
-        "11 h 19 m - 156.8 km (97.5 mi) - 1110 m (1 h cross training)": {
+        {
             "Mon": "45 E / 35 S&C",
             "Tue": "40 E w/ 6 x 15 s strides / 3 x 2 km, 1 x 1200 (60 s)",
             "Wed": "25 S&C / 40 E / 90 E",
@@ -65,7 +65,7 @@
             "Sat": "2 h 10 steady",
             "Sun": "80 E"
         },
-        "11 h 22 m - 146.6 km (91.1 mi) - 2270 m": {
+        {
             "Mon": "Rest",
             "Tue": "80 Easy (E)",
             "Wed": "40 E / 35 S&C / 80 E",
@@ -74,7 +74,7 @@
             "Sat": "5, 4, 3, 2, 1 km (60 s) / 35 E",
             "Sun": "2:40 long run"
         },
-        "10 h 31 m - 132.5 km (82.3 mi) - 2585 m": {
+        {
             "Mon": "30 S&C",
             "Tue": "20 E / 40 E & 15 S&C",
             "Wed": "35 E / 60 E",
@@ -83,7 +83,7 @@
             "Sat": "75 w/ 20 Fartlek / 30 E",
             "Sun": "2 h 50 E hilly"
         },
-        "10 h 3 m - 140.3 km (87.2 mi) - 1010 m (3310 ft)": {
+        {
             "Mon": "50 E / 20 S&C",
             "Tue": "8 x 1 k (200)",
             "Wed": "70 E / 40 E",
@@ -92,7 +92,7 @@
             "Sat": "75 E & 20 S&C",
             "Sun": "65 E / 65 E"
         },
-        "11 h 58 m - 165.9 km (103.1 mi) - 1050 m (3445 ft)": {
+        {
             "Mon": "45 E / 40 E & 15 S&C",
             "Tue": "35 ć 8 x 12 s hill strides / 2 mi, 2 x 1 km, 5 x 400, 1.5 mi",
             "Wed": "30 E / 90 E",
@@ -101,7 +101,7 @@
             "Sat": "4 x 5 km MP (38 km total)",
             "Sun": "45 E / 35 E"
         },
-        "10 h 45 m - 153.1 km (95.1 mi) - 1120 m (3675 ft)": {
+        {
             "Mon": "75 E",
             "Tue": "50 E ć 4 x 20 s strides & 10 S&C",
             "Wed": "40 E / 40 E",
@@ -110,7 +110,7 @@
             "Sat": "55 E / 30 E & 25 S&C",
             "Sun": "2 h 15 long run"
         },
-        "11 h 49 m - 168 km (104.4 mi) - 1450 m (4760 ft)": {
+        {
             "Mon": "50 E / 20 S&C + 40 E",
             "Tue": "40 E ć 8 x 12 s hills / 3 mi, 2 mi, 1.5 mi (400)",
             "Wed": "80 E / 30 E",
@@ -119,7 +119,7 @@
             "Sat": "65 E / 20 S&C",
             "Sun": "2:15 Long run"
         },
-        "11 h 40 m - 167.9 km (103.8 mi) - 1270 m (4170 ft)": {
+        {
             "Mon": "40 E / 40 E",
             "Tue": "30 E ć 8 x 12 s hills / 8 x 1 km (200)",
             "Wed": "90 ET - 40 E / 70 E",
@@ -128,7 +128,7 @@
             "Sat": "1:35 E club Xmas run",
             "Sun": "2:15 Long run"
         },
-        "11 h 4 m - 150.7 km (93.6 mi) - 800 m (2620 ft)": {
+        {
             "Mon": "30 E / 20 S&C",
             "Tue": "40 E ć 8 x 12 s hills / 3 mi (400), 4 x 400 (200), 1 mi (400)",
             "Wed": "35 E / 90 E",
@@ -137,7 +137,7 @@
             "Sat": "60 E / 30 E",
             "Sun": "90 E treadmill"
         },
-        "11 h 19 m - 156.6 km (97.3 mi) - 1260 m (4140 ft)": {
+        {
             "Mon": "40 Easy (E) / 20 S&C + 40 E",
             "Tue": "40 E ć 8 x 10 s hill strides / 10 x 1 km (200 jog)",
             "Wed": "35 E / 85 E",
@@ -146,7 +146,7 @@
             "Sat": "40 E / 20 S&C",
             "Sun": "2:14 Long run (4:09 /km)"
         },
-        "10 h 6 m - 142.1 km (88.3 mi) - 1092 m (3583 ft)": {
+        {
             "Mon": "40 Easy / 45 Easy & 15 Strength",
             "Tue": "40 Easy inc 8 x 10 s hill strides / 40 Easy",
             "Wed": "80 Easy",
@@ -155,9 +155,9 @@
             "Sat": "60 Easy",
             "Sun": "120 Long Run"
         }
-    },
-    "hard": {
-        "13 h 20 m - 165.1 km (102.6 mi) - 3540 m": {
+    ],
+    "hard": [
+        {
             "Mon": "40 E + 10 S&C / 40 E",
             "Tue": "20 S&C / 35 E / 75 E",
             "Wed": "35 E w/ 8 x 15 s strides / 3 x 14 min hill",
@@ -166,7 +166,7 @@
             "Sat": "70 E",
             "Sun": "3h 50m E hilly"
         },
-        "12 h 28 m, 157.4 km (97.8 mi), 2500 m": {
+        {
             "Mon": "25 S&C / 50 E",
             "Tue": "35 E w/ 8 x 15 s strides / 10 x 1 km (200 jog)",
             "Wed": "30 S&C / 40 E / 75 E",
@@ -175,7 +175,7 @@
             "Sat": "2 h 50 steady hilly long run",
             "Sun": "2h E"
         },
-        "14 h 12 m - 146.8 km (91.2 mi) - 4250 m": {
+        {
             "Mon": "55 E / 30 S&C",
             "Tue": "30 E w/ 8 x 15 s strides / 6 x 1 mile (60 s) alternating 5:00-4:50",
             "Wed": "25 S&C / 40 E / 80 E",
@@ -184,7 +184,7 @@
             "Sat": "2 h 50 hill run (lots of scrambling)",
             "Sun": "2h 20 hill run"
         },
-        "12 h 50 m - 154.1 km (95.8 mi) - 4270 m": {
+        {
             "Mon": "50 E",
             "Tue": "35 E w/ 8 x 15 s strides / 9 x 1 km (200)",
             "Wed": "40 E / 80 E",
@@ -193,7 +193,7 @@
             "Sat": "3 h steady hill run",
             "Sun": "1 h 55 easy hill run"
         },
-        "13 h 18 m - 160.5 km (99.8 mi) - 3850 m": {
+        {
             "Mon": "50 E",
             "Tue": "35 w 8 x 12 s hills / 6 X 2 k (60 s)",
             "Wed": "30 S&C / 45 E / 65 E",
@@ -202,7 +202,7 @@
             "Sat": "4 x 7 min hills / 35 E",
             "Sun": "2:50 hilly long run"
         },
-        "12 h 17 m - 170.2 km (105.8 mi) - 1090 m (3580 ft)": {
+        {
             "Mon": "45 E / 35 E",
             "Tue": "35 E w/ 6 x 12 s hills / 2 mi, 10 x 400 (70 s), 2 mi",
             "Wed": "35 E / 90 E",
@@ -211,7 +211,7 @@
             "Sat": "4 x 4 k (90 s)",
             "Sun": "2:25 Long run"
         },
-        "12 h 40 m - 171.1 km (106.3 mi) - 1276 m (4186 ft)": {
+        {
             "Mon": "20 S&C / 70 E",
             "Tue": "11 x 1 k (200 jog)",
             "Wed": "40 E / 95 E",
@@ -220,7 +220,7 @@
             "Sat": "30 E / XC race",
             "Sun": "2h 20 Long run ć 8 x 20 s strides"
         },
-        "12 h 30 m - 168.7 km (104.9 mi) - 1008 m (3307 ft)": {
+        {
             "Mon": "20 S&C & 75 E",
             "Tue": "50 E ć 8 x 12 s hills / 25 x 400 (45 s)",
             "Wed": "30 E / 90 E",
@@ -229,5 +229,5 @@
             "Sat": "25 E ć 4 x 15 s strides / XC race",
             "Sun": "2:10 long run"
         }
-    }
+    ]
 }
