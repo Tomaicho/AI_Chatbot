@@ -11,3 +11,13 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Response to ask for help
+  steps:
+  - intent: ask_for_help
+  - action: utter_ask_for_help
+
+- rule: Response to i want to run
+  steps:
+  - intent: i_want_to_run
+  - action: utter_i_want_to_run

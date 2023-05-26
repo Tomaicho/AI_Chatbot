@@ -77,6 +77,18 @@ slots:
     mappings:
     - type: from_entity
       entity: ascent
+  time_left:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: time_left
+  time_left_unit:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: time_left_unit
 
 forms:
   race_info_form:
@@ -85,7 +97,6 @@ forms:
     required_slots:
         - goaldistance
         - goaldistanceunit
-        - 
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -93,6 +104,12 @@ responses:
   - text: How can I help you?
   - text: I'm here to help you. Tell me what your goal is.
   - text: Which race do you want to run?
+  utter_i_want_to_run:
+  - text: In order to help you achieving your goals, I need to know what type of competition you are into and how fast you want to run.
+  - text: Cool! Please tell me what are your goal distance and time.
+  utter_ask_for_help:
+  - text: Of course! Please tell me a bit more about your goals.
+  - text: Sure! What distance and time are you aiming for?
   utter_did_that_help:
   - text: Did that help you?
   utter_ask_distance:

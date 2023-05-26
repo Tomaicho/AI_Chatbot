@@ -53,6 +53,6 @@ stories:
     - descent: "3500"
   - action: utter_ask_current_form_road
 
-- story: User interrupts trail climb informing
+- story: 
   steps:
   
