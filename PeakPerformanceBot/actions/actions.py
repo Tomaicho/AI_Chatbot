@@ -57,8 +57,9 @@ class checkInfo(Action):
         goal_minutes = tracker.get_slot("goalminutes")
         goal_seconds = tracker.get_slot("goalseconds")
         
-        while goal_hours == None and goal_minutes == None and goal_seconds == None:
+        while goal_hours is None and goal_minutes is None and goal_seconds is None:
             dispatcher.utter_message(response="utter_ask_goaltime")
+            latest_user_message = tracker.latest_message.get('text')
             goal_hours = tracker.get_slot("goalhours")
             goal_minutes = tracker.get_slot("goalminutes")
             goal_seconds = tracker.get_slot("goalseconds")

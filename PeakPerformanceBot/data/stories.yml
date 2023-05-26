@@ -10,8 +10,8 @@ stories:
   - intent: inform
     entities:
     - goaldistance: "10"
-    - unitdistance: "km"
-    - goaltime: "30"
+    - goaldistanceunit: "km"
+    - goalminutes: "30"
     - racetype: "flat"
   - action: utter_hard_road_goal
   - action: utter_ask_current_form_road
@@ -21,8 +21,9 @@ stories:
   - action: utter_how_can_i_help
   - intent: inform
     entities:
-    - goaldistance: "50 km"
-    - goaltime: "10h"
+    - goaldistance: "50"
+    - goaldistanceunit: "km"
+    - goalhours: "10"
     - racetype: "trail"
   - action: utter_ask_ascent
   - intent: inform_ascent
@@ -39,8 +40,8 @@ stories:
   steps:
   - intent: inform
     entities:
-    - goaldistance: "50 km"
-    - goaltime: "10h"
+    - goaldistance: "50"
+    - goaldistanceunit: "km"
     - racetype: "trail"
   - action: utter_ask_ascent
   - intent: inform_ascent
@@ -53,6 +54,12 @@ stories:
     - descent: "3500"
   - action: utter_ask_current_form_road
 
-- story: 
+- story: quick_informer 4
   steps:
+  - intent: inform
+    entities:
+    - goaldistance: "50"
+    - goaldistanceunit: "km"
+  - action: check_info
+  - action: utter_goodbye
   
