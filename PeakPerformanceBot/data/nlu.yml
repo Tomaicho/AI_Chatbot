@@ -144,16 +144,16 @@ nlu:
     - my fastest time ever is [2](pb_hours) hours and [15](pb_minutes) minutes
     - my current best is [8](pb_minutes)'[35](pb_seconds)''
     - my pb in this distance is [8](pb_minutes)'[35](pb_seconds)''
-- intent: inform_time_left
-  examples: |
-    - [3](time_left) [months](time_left_unit)
-    - I still have [4](time_left) [weeks](time_left_unit) until the competition
-    - still [1](time_left) [year](time_left_unit) to go
-    - in exactly [35](time_left) [days](time_left_units)
-    - the race will be in [6](time_left) [months](time_left_unit) time
-    - around [6](time_left) [weeks](time_left_unit) left
-    - I have [8](time_left) [weeks](time_left_unit) left until my race. What should my training plan be?
-    - the competition is in [3](time_left) [days](time_left_unit). What should my tapering strategy be?
+# - intent: inform_time_left
+#   examples: |
+#     - [3](time_left) [months](time_left_unit)
+#     - I still have [4](time_left) [weeks](time_left_unit) until the competition
+#     - still [1](time_left) [year](time_left_unit) to go
+#     - in exactly [35](time_left) [days](time_left_units)
+#     - the race will be in [6](time_left) [months](time_left_unit) time
+#     - around [6](time_left) [weeks](time_left_unit) left
+#     - I have [8](time_left) [weeks](time_left_unit) left until my race. What should my training plan be?
+#     - the competition is in [3](time_left) [days](time_left_unit). What should my tapering strategy be?
 - intent: affirm
   examples: |
     - yes

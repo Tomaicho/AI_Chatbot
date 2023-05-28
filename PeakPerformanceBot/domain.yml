@@ -17,8 +17,8 @@ intents:
     - goaltimefinal
     - pb
     - racetype
-    - time_left
-    - time_left_unit
+    # - time_left
+    # - time_left_unit
 - deny
 - goodbye
 - greet

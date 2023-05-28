@@ -1,8 +1,0 @@
-{
-  "rule_only_slots": [
-    "racetype"
-  ],
-  "rule_only_loops": [
-    "race_info_form"
-  ]
-}
