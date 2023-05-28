@@ -6,6 +6,8 @@ pipeline:
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer
+    OOV_token: oov.txt
+    analyzer: word
   - name: CountVectorsFeaturizer
     analyzer: char_wb
     min_ngram: 1
@@ -16,6 +18,8 @@ pipeline:
   - name: ResponseSelector
     epochs: 100
   - name: FallbackClassifier
+
+  
 
 policies:
 # # No configuration for policies was provided. The following default policies were used to train your model.

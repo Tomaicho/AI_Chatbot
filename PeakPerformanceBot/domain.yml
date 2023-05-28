@@ -4,19 +4,41 @@ intents:
 - bot_challenge
 - chitchat:
     is_retrieval_intent: true
+    used_entities:
+    - ascent
+    - current_form
+    - descent
+    - goaldistance
+    - goaldistancefinal
+    - goaldistanceunit
+    - goalhours
+    - goalminutes
+    - goalseconds
+    - goaltimefinal
+    - pb
+    - racetype
+    - time_left
+    - time_left_unit
 - deny
 - goodbye
 - greet
 - inform
 - inform_ascent
 - inform_descent
+- inform_pb
+- inform_time_left
+- recreational_runner
 - mood_great
 - mood_unhappy
+- negation
+- inform_racetype
+- inform_goaldistance
+- inform_goaltime
 entities:
-- racetype
-- goaldistance
 - goalhours
-- goaldistanceunit
+- racetype
+- goaldistance_km
+- goaldistance_m
 - goalminutes
 - goalseconds
 - pb
@@ -25,16 +47,20 @@ entities:
 - current_form
 - ascent
 - descent
+- goaltimefinal
+- goaldistancefinal
 actions:
+- utter_ask_racetype
 - utter_ask_goaltime
 - utter_how_can_i_help
 - utter_greet
-- utter_ask_racetype
 - utter_ask_PB
 - calculate_trail_climb
-- check_info
 - utter_chitchat
 - utter_ask_distance_time
+- convert_distance
+- convert_time
+- utter_goaltimefinal
 slots:
   goalminutes:
     type: text
@@ -51,18 +77,27 @@ slots:
     mappings:
     - type: from_entity
       entity: goalseconds
-  goaldistance:
+  goaldistance_km:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: goaldistance
-  goaldistanceunit:
+      entity: goaldistance_km
+  goaldistance_m:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
-      entity: goaldistanceunit
+      entity: goaldistance_m
+  # goaldistanceunit:
+  #   type: categorical
+  #   influence_conversation: true
+  #   values:
+  #   - km
+  #   - m
+  #   mappings:
+  #   - type: from_entity
+  #     entity: goaldistanceunit
   racetype:
     type: categorical
     influence_conversation: true
@@ -94,8 +129,12 @@ slots:
     - type: from_entity
       entity: time_left
   time_left_unit:
-    type: text
+    type: categorical
     influence_conversation: true
+    values:
+    - year
+    - day
+    - month
     mappings:
     - type: from_entity
       entity: time_left_unit
@@ -105,22 +144,31 @@ slots:
     mappings:
     - type: from_entity
       entity: pb
+  goaltimefinal:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+  goaldistancefinal:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: goaldistancefinal
 forms:
   race_info_form:
     ignored_intents:
     - chitchat
     required_slots:
-    - goaldistance
-    - goaldistanceunit
-    - racetype
-    - goaldistance
-    - goaldistanceunit
-    - racetype
+    - goaldistance_km
+    # - goaltimefinal
+    
 responses:
   utter_greet:
-  - text: Hey! How are you?
+  - text: Hey! I am an AI generated bot ready to help you improve you running form.
+  utter_start:
+  - text: Start by telling me what type of races you are into. Road, track or trail running?
   utter_how_can_i_help:
-  - text: How can I help you?
   - text: I'm here to help you. Tell me what your goal is.
   - text: Which race do you want to run?
   utter_i_want_to_run:
@@ -131,11 +179,11 @@ responses:
   - text: Sure! What distance and time are you aiming for?
   utter_did_that_help:
   - text: Did that help you?
-  utter_ask_distance:
+  utter_ask_goaldistance:
   - text: What distance do you want to run?
   - text: How long is the race?
   - text: In order to set the training plan, I need to know what distance you want to run.
-  utter_ask_distance_unit:
+  utter_ask_goaldistanceunit:
   - text: In what unit is distance given? Meters or kilometers?
   utter_ask_goaltime:
   - text: How fast do you want to run?
@@ -143,7 +191,7 @@ responses:
   - text: To better define the training plan, I need to know how fast you want to run.
   utter_ask_racetype:
   - text: What type of race is it? Road, track, or trail?
-  utter_ask_PB:
+  utter_ask_pb:
   - text: Do you have a previous PB in this distance?
   - text: What is your previous PB in the distance?
   utter_ask_time_left:
@@ -173,7 +221,11 @@ responses:
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_ask_distance_time:
-  - How long and what distance do you want to run?
+  - text: How long and what distance do you want to run?
+  utter_goaltimefinal:
+  - text: "The total time in seconds is {goaltimefinal}"
+  utter_goaldistancefinal:
+  - text: "The total distance in meters is {goaldistancefinal}"
 session_config:
   session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  carry_over_slots_to_new_session: false

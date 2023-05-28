@@ -79,49 +79,40 @@ nlu:
     - I will go to the race just for fun
     - I don't worry about the time
     - I don't worry about my performance
-- intent: inform
+- intent: inform_racetype
   examples: |
-    - can I beat my PB of [9](goalhours)h [55](goalminutes)m [23](goalseconds)s in a [10](goaldistance)[k](goaldistanceunit) [road](racetype) race
-    - I want to break my personal best of [3](goalhours)h [34](goalminutes)m in the [3000](goaldistance)[m](goaldistanceunit)
-    - I want to run a [100](goaldistance) [km](goaldistanceunit) [trail](racetype) race
-    - how can I run [1500](goaldistance)[m](goaldistanceunit) under [4](goalminutes)'
-    - is it possible for me to run under [6](goalminutes) minutes on the [2000](goaldistance) [meters](goaldistanceunit)
-    - I want to run under [30](goalminutes)' in a [10000](goaldistance)[m](goaldistance) [flat](racetype) race
-    - how can I run an [half-marathon](goaldistance) under [2](goalhours) hours and [30](goalminutes) minutes
-    - is it possible for me to break the [2](goalhours):[23](goalminutes)m barrier in the [marathon](goaldistance)
-    - can you help me run under [8](goalminutes)'[30](goalseconds)'' in the [3000](goaldistance)[m](goaldistanceunit)
-    - I want to be faster than [2](goalminutes)m[40](goalseconds)s in a [1000](goaldistance)[m](goaldistanceunit) race
-    - break [3](goalhours) hours
-    - the goal must be beating my last mark of [2](goalhours)h[8](goalminutes)'[30](goalseconds)''
-    - my goal is to go below [two](goalhours) hours and [thirty](goalminutes) minutes
-    - I want to run a fast [10000](goaldistance)[m](goaldistanceunit)
-    - how fast can I run an [half marathon](goaldistance)
-    - I want to run a [trail](racetype) with [100](goaldistance)[km](goaldistanceunit)
-    - the race distance is [5](goaldistance) kilometers](goaldistanceunit)
     - it is a [flat](racetype) race
     - it will be a [trail](racetype) running event
     - I am going to run on the [flat](racetype)
+    - I am more into [track](racetypes) competitions
     - [flat](racetype)
     - [trail](racetype)
     - it is a [flat](racetype) competition
-    - [3 months](time_left)
-    - I still have [4](time_left) [weeks](time_left_unit) until the competition
-    - still [1](time_left) [year](time_left_unit) to go
-    - in exactly [35](time_left) [days](time_left_units)
-    - the race will be in [6](time_left) [months](time_left_unit) time
-    - around [6](time_left) [weeks](time_left_unit) left
-    - I want to beat my personal best of [1](goalhours) hour and [45](goalminutes) minutes in a [10](goaldistance)[k](goaldistanceunit) race.
-    - can you help me run a [marathon](goaldistance) in under [4](goalhours) hours?
-    - I aim to finish a [half-marathon](goaldistance) in less than [2](goalhours) hours and [10](goalminutes) minutes.
-    - how can I improve my time for a [5](goaldistance)[km](goaldistanceunit) race?
-    - I want to run a [10](goaldistance)[miles](goaldistanceunit) race and achieve a time of under [1](goalhours) hour and [30](goalminutes) minutes.
-    - is it possible for me to run a [5](goaldistance)[km](goaldistanceunit) race in under [25](goalminutes) minutes?
-    - how can I prepare to run a [10](goaldistance)[km](goaldistanceunit) race in [2](time_left) [months](time_left_unit)' time?
-    - I have [8](time_left) [weeks](time_left_unit) left until my race. What should my training plan be?
-    - the competition is in [3](time_left) [days](time_left_unit). What should my tapering strategy be?
-    - i want to run [100](goaldistance) [km](goaldistanceunit)
-    - I want to complete the race in less than [10](goalhours) hours
-    - It is a [road]{"entity": "racetype", "value": "flat"} race
+    - it is a [road]{"entity": "racetype", "value": "flat"} race
+    - it is a [trail](racetype) running race
+
+- intent: inform_goaldistance
+  examples: |
+    - I want to run a fast [10000m](goaldistance_km)
+    - the race distance is [5 kilometers](goaldistance_km)
+    - i want to run [100km](goaldistance_km)
+    - how can I improve my time for a [5 km's](goaldistance_km) race?
+    - it is [56 kms](goaldistance_km)
+    - [100 meters](goaldistance_km)
+    - just [1 kilometer](goaldistance_km)
+    - roughly [12300 m's](goaldistance_km)
+
+- intent: inform_goaltime
+  examples: |
+    - I want to run under [40 minutes](goalminutes)
+    - I want to run in [60 seconds](goalseconds)
+    - I want to break the [3 hours](goalhours) barrier
+    - I want to be faster than [2 hours](goalhours) and [20 minutes](goalminutes)
+    - [2 hours](goalhours)
+    - [2 hours](goalhours) and [20 m](goalminutes)
+    - [2 hours](goalhours)[20'](goalminutes) and [30''](goalseconds)
+    - I want to break my best of [3h](goalhours) [34m](goalminutes)
+    
 - intent: inform_ascent
   examples: |
     - it will have [2000](ascent) meters of ascent
@@ -130,6 +121,7 @@ nlu:
     - there are [2300](ascent) meters of climb in total
     - the toal hillclimb sums up to [1500](ascent) meters
     - [4600](ascent)m+
+    - 40000 meters
 - intent: inform_descent
   examples: |
     - it will have a total of [2000](descent) meters of descent.
@@ -137,6 +129,7 @@ nlu:
     - we're gonna go down [1000](descent) meters during the race.
     - there are approximately [2300](descent) meters of descent in total.
     - [4600](descent)m-
+    - 40000 meters
 - intent: inform_pb
   examples: |
     - my previous PB in the marathon was [3](pb_hours)h[45](pb_minutes)'[12](pb_seconds)''
@@ -150,11 +143,47 @@ nlu:
     - I achieved my PB last year with a time of [50](pb_minutes)'
     - my fastest time ever is [2](pb_hours) hours and [15](pb_minutes) minutes
     - my current best is [8](pb_minutes)'[35](pb_seconds)''
+    - my pb in this distance is [8](pb_minutes)'[35](pb_seconds)''
+- intent: inform_time_left
+  examples: |
+    - [3](time_left) [months](time_left_unit)
+    - I still have [4](time_left) [weeks](time_left_unit) until the competition
+    - still [1](time_left) [year](time_left_unit) to go
+    - in exactly [35](time_left) [days](time_left_units)
+    - the race will be in [6](time_left) [months](time_left_unit) time
+    - around [6](time_left) [weeks](time_left_unit) left
+    - I have [8](time_left) [weeks](time_left_unit) left until my race. What should my training plan be?
+    - the competition is in [3](time_left) [days](time_left_unit). What should my tapering strategy be?
+- intent: affirm
+  examples: |
+    - yes
+    - of course
+    - absolutely
+    - I agree
+    - it is
+    - yes, it is
+    - yeah
+    - ya
+    - yah
+- intent: negation
+  examples: |
+    - no
+    - of course not
+    - absolutely not
+    - I don't agree
+    - it is not
+    - it isn't
+    - no, it's not
+- synonym: flat
+  examples: |
+    - road
+    - track
 - synonym: m
   examples: |
     - meters
     - met
     - meter
+    - m's
 - synonym: km
   examples: |
     - kilometer
@@ -202,7 +231,3 @@ nlu:
 - synonym: year
   examples: |
     - years
-- synonym: flat
-  examples: |
-    - track
-    - road
