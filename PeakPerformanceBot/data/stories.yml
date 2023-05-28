@@ -8,283 +8,73 @@ stories:
   - action: utter_greet
   - action: utter_start
   - intent: inform_racetype
-    # entities:
-    # - racetype: "flat"
-  # set the given slots
-  # - slot_was_set:
-  #   - racetype: "flat"
-  # - intent: inform_goaldistance
-  #   entities:
-  #   - goaldistance
-  # # set the given slots
-  # - slot_was_set:
-  #   - goaldistance: goaldistance
-  # - intent: inform_goaltime
-  #   entities:
-  #   - goalhours
-  # # set the given slots
-  # - slot_was_set:
-  #   - goalhours: goalhours
-  # - action: convert_time_distance
-  # - action: utter_goaltimefinal
+    entities:
+    - racetype: "flat"
+  - slot_was_set:
+    - racetype: "flat"
+  - action: utter_ask_goaldistance
+  - intent: inform_goaldistance
+    entities:
+    - goaldistance_m
+  - slot_was_set:
+    - goaldistance_m: goaldistance_m
+  - action: convert_distance
+  - action: utter_goaldistancefinal
+  - action: utter_ask_goaltime
+  - intent: inform_goaltime
+    entities:
+    - goalhours
+    - goalminutes
+  - slot_was_set:
+    - goalhours: goalhours
+  - slot_was_set:
+    - goalminutes: goalminutes
+  - action: convert_time
+  - action: utter_goaltimefinal
 
-# - story: trail_distance_unit_goalhours
-#   steps:
-#   - action: utter_how_can_i_help
-#   - intent: inform
-#     entities:
-#     - goaldistance
-#     - goaldistanceunit
-#     - goalhours
-#     - racetype: "trail"
-#     # set the given slots
-#   - slot_was_set:
-#     - goaldistance: goaldistance
-#   - slot_was_set:
-#     - goaldistanceunit: goaldistanceunit
-#   - slot_was_set:
-#     - goalminutes: goalminutes
-#   - slot_was_set:
-#     - racetype: racetype
-#   - action: utter_ask_ascent
-#   - intent: inform_ascent
-#     entities:
-#     - ascent
-#   # set the given slots
-#   - slot_was_set:
-#     - ascent: ascent
-#   - action: calculate_trail_climb
-#   - action: utter_ask_descent
-#   - intent: inform_descent
-#     entities:
-#     - descent: "3500"
-#   - action: utter_ask_current_form_road
+- story: quick_general
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_how_can_i_help
+  - intent: inform_general
+    entities:
+    - goaldistance_km
+    - goalhours
+    - racetype: "flat"
+  - slot_was_set:
+    - racetype: "flat"
+  - slot_was_set:
+    - goaldistance_km: goaldistance_km
+  - slot_was_set:
+    - goalhours: goalhours
+  - action: convert_distance
+  - action: utter_goaldistancefinal
 
-# - story: trail_distance_unit
-#   steps:
-#   - intent: inform
-#     entities:
-#     - goaldistance
-#     - goaldistanceunit
-#     - racetype: "trail"
-#   # set the given slots
-#   - slot_was_set:
-#     - goaldistance: goaldistance
-#   - slot_was_set:
-#     - goaldistanceunit: goaldistanceunit
-#   - slot_was_set:
-#     - racetype: racetype
-#   - action: utter_ask_goaltime
-#   - intent: inform
-#     entities:
-#     - goalminutes
-#     - goalseconds
-#   # set the given slots
-#   - slot_was_set:
-#     - goalminutes: goalminutes
-#   - slot_was_set:
-#     - goalseconds: goalseconds
-#   - action: utter_ask_ascent
-#   - intent: inform_ascent
-#     entities:
-#     - ascent
-#   - slot_was_set:
-#     - ascent: ascent
-#   - action: calculate_trail_climb
-#   - action: utter_ask_descent
-#   - intent: inform_descent
-#     entities:
-#     - descent: "3500"
-#   - action: utter_ask_current_form_road
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform_general
+    entities:
+    - racetype: flat
+    - goaldistance_km: 100km
+    - goalhours: 10 hours
+  - slot_was_set:
+    - goalhours: 10 hours
+  - slot_was_set:
+    - goaldistance_km: 100km
+  - slot_was_set:
+    - racetype: flat
+  - action: convert_distance
+  - slot_was_set:
+    - goaldistancefinal: 100000
+  - action: utter_goaldistancefinal
+  - action: utter_ask_time_left
+  - intent: inform_time_left
+    entities:
+    - time_left_weeks: '12 weeks'
+  - slot_was_set:
+    - time_left_weeks: '12 weeks'
+  - action: convert_time_left
 
-
-# - story: only_distance_goalhours_flat
-#   steps:
-#   - intent: inform
-#     entities:
-#     - goaldistance
-#     - goaldistanceunit
-#   - slot_was_set:
-#     - goaldistance: goaldistance
-#   - slot_was_set:
-#     - goaldistanceunit: goaldistanceunit
-#   - action: utter_ask_goaltime
-#   - intent: inform
-#     entities:
-#     - goalhours
-#   - slot_was_set:
-#     - goalhours: goalhours
-#   - action: utter_ask_racetype
-#   - intent: inform
-#     entities:
-#     - racetype: "flat"
-#   - slot_was_set:
-#     - racetype: racetype
-#   - action:  utter_ask_PB
-#   - intent: inform_pb
-#     entities:
-#     - pb
-#   - slot_was_set:
-#     - pb: pb
-#   - action: utter_ask_time_left
-#   - intent: inform_time_left
-#     entities:
-#     - time_left
-#     - time_left_unit
-#   - slot_was_set:
-#     - time_left: time_left
-#   - slot_was_set:
-#     - time_left_unit: time_left_unit
-
-# - story: no_distance_unit
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - action: utter_how_can_i_help
-#   - intent: inform
-#     entities:
-#     - goaldistance
-#     - goalminutes
-#     - racetype: "flat"
-#   # set the given slots
-#   - slot_was_set:
-#     - goaldistance: goaldistance
-#   - slot_was_set:
-#     - goalminutes: goalminutes
-#   - slot_was_set:
-#     - racetype: racetype
-#   - action: utter_ask_distance_unit
-#   - intent: inform
-#     entities:
-#     - goaldistanceunit
-#   # set the given slots
-#   - slot_was_set:
-#     - goaldistanceunit: goaldistanceunit
-#   - action: utter_hard_road_goal
-#   - action: utter_ask_current_form_road
-
-
-# - story: only_race_type
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - action: utter_how_can_i_help
-#   - intent: inform
-#     entities:
-#     - racetype: "flat"
-#   # set the given slots
-#   - slot_was_set:
-#     - racetype: racetype
-#   - action: utter_ask_distance
-#   - intent: inform
-#     entities:
-#     - goaldistance
-#     - goaldistanceunit
-#     - goalhours
-#     - slot_was_set:
-#       - goaldistance: goaldistance
-#     - slot_was_set:
-#       - goaldistanceunit: goaldistanceunit
-#     - slot_was_set:
-#       - goalhours: goalhours
-#   - action:  utter_ask_PB
-#   - intent: inform_pb
-#     entities:
-#     - pb
-#   - action: utter_ask_time_left
-#   - intent: inform_time_left
-#     entities:
-#     - time_left
-#     - time_left_unit
-#   - slot_was_set:
-#     - time_left: time_left
-#   - slot_was_set:
-#     - time_left_unit: time_left_unit
-
-# - story: flat_ask_twice
-#   steps:
-#   - intent: inform
-#     entities:
-#     - goaldistance
-#     - goaldistanceunit
-#     - goalhours
-#     - racetype
-#   - slot_was_set:
-#     - goaldistance: goaldistance
-#   - slot_was_set:
-#     - goaldistanceunit: goaldistanceunit
-#   - slot_was_set:
-#     - goalhours: goalhours
-#   - slot_was_set:
-#     - racetype: racetype
-#   - action:  utter_ask_PB
-#   - intent: inform
-#   - action: utter_ask_PB
-#   - intent: inform_pb
-#     entities:
-#     - pb
-#   - slot_was_set:
-#     - pb: pb
-#   - action: utter_ask_time_left
-#   - intent: inform_time_left
-#     entities:
-#     - time_left
-#     - time_left_unit
-#   - slot_was_set:
-#     - time_left: time_left
-#   - slot_was_set:
-#     - time_left_unit: time_left_unit
-
-# - story: conflicting_info
-#   steps:
-#   - intent: inform
-#     entities:
-#     - goaldistance
-#     - goaldistanceunit
-#     - goalhours
-#     - racetype: "flat"
-#   - slot_was_set:
-#     - goaldistance: goaldistance
-#   - slot_was_set:
-#     - goaldistanceunit: goaldistanceunit
-#   - slot_was_set:
-#     - goalhours: goalhours
-#   - slot_was_set:
-#     - racetype: racetype
-#   - action:  utter_ask_PB
-#   - intent: inform_pb
-#   - action: utter_ask_PB
-#   - intent: inform_pb
-#     entities:
-#     - pb
-#   - slot_was_set:
-#     - pb: pb
-#   - action: utter_ask_time_left
-#   - intent: inform_time_left
-#     entities:
-#     - time_left
-#     - time_left_unit
-#   - slot_was_set:
-#     - time_left: time_left
-#   - slot_was_set:
-#     - time_left_unit: time_left_unit
-
-# - story: interactive_story_1
-#   steps:
-#   - intent: inform
-#     entities:
-#     - goaldistance: '100'
-#     - goaldistanceunit: km
-#     - racetype: trail
-#   - slot_was_set:
-#     - goaldistanceunit: km
-#   - slot_was_set:
-#     - racetype: trail
-#   - slot_was_set:
-#     - goaldistance: '100'
-#   - action: utter_ask_goaltime
-#   - intent: inform
-#     entities:
-#     - goalhours: '10'
-#   - slot_was_set:
-#     - goalhours: '10'

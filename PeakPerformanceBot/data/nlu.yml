@@ -91,13 +91,32 @@ nlu:
     - it is a [road]{"entity": "racetype", "value": "flat"} race
     - it is a [trail](racetype) running race
 
+- intent: inform_general
+  examples: |
+    - I want to run a fast [10km](goaldistance_km) in under [40 minutes](goalminutes) on a [flat](racetype) race.
+    - The race distance is [10 km](goaldistance_km) in [40 minutes](goalminutes) on a [flat](racetype) road.
+    - I want to run a [100 km](goaldistance_km) [trail](racetype) race
+    - how can I run [1500m](goaldistance_m) under [4'](goalminutes)
+    - is it possible for me to run under [6 minutes](goalminutes) on the [2000 meters](goaldistance_m)
+    - I want to run under [30'](goalminutes) in a [10000 metres](goaldistance) [flat](racetype) race
+    - can you help me run under [8'](goalminutes)[30''](goalseconds) in the [3000m](goaldistance_m)
+    - I want to be faster than [2m](goalminutes)[40s](goalseconds) in a [1000m](goaldistance_m) race
+    - break [3 hours](goalhours)
+    - the goal must be beating my last mark of [2h](goalhours)[8'](goalminutes)[30''](goalseconds)
+    - my goal is to go below [2 hours](goalhours) and [30 minutes](goalminutes)
+    - I want to run a [trail](racetype) with [100km](goaldistance_km)
+    - I want to complete the race in less than [10 hours](goalhours)
+    - is it possible for me to run a [5km](goaldistance_km) race in under [25minutes](goalminutes)?
+    - i want to run a [100 km](goaldistance_km) [trail](racetype) race
+    - i want to run in under [10 hours](goalhours)
+
 - intent: inform_goaldistance
   examples: |
     - I want to run a fast [10000m](goaldistance_km)
     - the race distance is [5 kilometers](goaldistance_km)
     - i want to run [100km](goaldistance_km)
     - how can I improve my time for a [5 km's](goaldistance_km) race?
-    - it is [56 kms](goaldistance_km)
+    - it is [56](goaldistance) [kms](goaldistanceunit)
     - [100 meters](goaldistance_km)
     - just [1 kilometer](goaldistance_km)
     - roughly [12300 m's](goaldistance_km)
@@ -122,38 +141,25 @@ nlu:
     - the toal hillclimb sums up to [1500](ascent) meters
     - [4600](ascent)m+
     - 40000 meters
-- intent: inform_descent
-  examples: |
-    - it will have a total of [2000](descent) meters of descent.
-    - the race course includes [4500](descent) meters of downhill.
-    - we're gonna go down [1000](descent) meters during the race.
-    - there are approximately [2300](descent) meters of descent in total.
-    - [4600](descent)m-
-    - 40000 meters
-- intent: inform_pb
-  examples: |
-    - my previous PB in the marathon was [3](pb_hours)h[45](pb_minutes)'[12](pb_seconds)''
-    - I ran the 10K race in [42](pb_minutes) minutes and [30](pb_seconds) seconds, which is my best time so far
-    - in the half marathon, I finished in [1](pb_hours) hour, [30](pb_minutes) minutes, and [15](pb_seconds) seconds, setting a new PB
-    - my PB for the 5K is around [20](pb_minutes) minutes
-    - I completed the 8 km race in [55](pb_minutes) minutes, my fastest time ever
-    - I ran the 10 kilometers in under [30](pb_minutes)m[57](pb_seconds)s, which is my current PB
-    - I finished the marathon in [4](pb_hours) hours and [10](pb_minutes) minutes, setting a new PB
-    - my best time in the half marathon is [1](pb_hours)h[50](pb_minutes)min
-    - I achieved my PB last year with a time of [50](pb_minutes)'
-    - my fastest time ever is [2](pb_hours) hours and [15](pb_minutes) minutes
-    - my current best is [8](pb_minutes)'[35](pb_seconds)''
-    - my pb in this distance is [8](pb_minutes)'[35](pb_seconds)''
-# - intent: inform_time_left
+# - intent: inform_descent
 #   examples: |
-#     - [3](time_left) [months](time_left_unit)
-#     - I still have [4](time_left) [weeks](time_left_unit) until the competition
-#     - still [1](time_left) [year](time_left_unit) to go
-#     - in exactly [35](time_left) [days](time_left_units)
-#     - the race will be in [6](time_left) [months](time_left_unit) time
-#     - around [6](time_left) [weeks](time_left_unit) left
-#     - I have [8](time_left) [weeks](time_left_unit) left until my race. What should my training plan be?
-#     - the competition is in [3](time_left) [days](time_left_unit). What should my tapering strategy be?
+#     - it will have a total of [2000](descent) meters of descent.
+#     - the race course includes [4500](descent) meters of downhill.
+#     - we're gonna go down [1000](descent) meters during the race.
+#     - there are approximately [2300](descent) meters of descent in total.
+#     - [4600](descent)m-
+#     - 40000 meters
+- intent: inform_time_left
+  examples: |
+    - [3 months](time_left_months)
+    - I still have [4 weeks](time_left_weeks) until the competition
+    - still [1 year](time_left_years) to go
+    - in exactly [35 days](time_left_days)
+    - the race will be in [6months](time_left_months) time
+    - around [6weeks](time_left_weeks) left
+    - I have [8 weeks](time_left_weeks) left until my race. What should my training plan be?
+    - the competition is in [3 days](time_left_days)
+    
 - intent: affirm
   examples: |
     - yes

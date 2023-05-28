@@ -22,26 +22,24 @@ rules:
   - intent: i_want_to_run
   - action: utter_i_want_to_run
 
-- rule: activate form
-  steps:
-  - intent: inform_racetype
-    entities:
-    - racetype: "flat"
-  - slot_was_set:
-    - racetype: "flat"
-  - action: race_info_form
-  - active_loop: race_info_form
+# - rule: activate form
+#   steps:
+#   - intent: inform_racetype
+#   - slot_was_set:
+#     - racetype: "flat"
+#   - action: race_info_form
+#   - active_loop: race_info_form
 
-- rule: submit form
-  condition:
-  - active_loop: race_info_form
-  steps:
-  - action: race_info_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: convert_distance
-  - action: utter_goaltimefinal
+# - rule: submit form
+#   condition:
+#   - active_loop: race_info_form
+  # steps:
+  # - action: race_info_form
+  # - active_loop: null
+  # - slot_was_set:
+  #   - requested_slot: null
+  # - action: convert_distance
+  # - action: utter_goaldistancefinal
 
 # - rule: Maintain goaltime_form until time is given
 #   - active_loop: goaltime_form

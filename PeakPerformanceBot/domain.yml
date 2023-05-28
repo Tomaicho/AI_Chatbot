@@ -7,59 +7,57 @@ intents:
     used_entities:
     - ascent
     - current_form
-    - descent
-    - goaldistance
+    - goaldistance_km
+    - goaldistance_m
     - goaldistancefinal
-    - goaldistanceunit
     - goalhours
     - goalminutes
     - goalseconds
     - goaltimefinal
-    - pb
     - racetype
-    # - time_left
-    # - time_left_unit
+    - time_left_years
+    - time_left_weeks
+    - time_left_months
+    - time_left_days
 - deny
 - goodbye
 - greet
-- inform
 - inform_ascent
-- inform_descent
-- inform_pb
-- inform_time_left
-- recreational_runner
-- mood_great
-- mood_unhappy
-- negation
-- inform_racetype
+- inform_general
 - inform_goaldistance
 - inform_goaltime
+- inform_racetype
+- inform_time_left
+- negation
+- recreational_runner
 entities:
+- goaldistance_km
+- time_left_years
+- time_left_weeks
+- time_left_months
+- time_left_days
 - goalhours
 - racetype
-- goaldistance_km
 - goaldistance_m
 - goalminutes
 - goalseconds
-- pb
-- time_left
-- time_left_unit
 - current_form
 - ascent
-- descent
 - goaltimefinal
 - goaldistancefinal
 actions:
+- utter_goaldistancefinal
+- utter_greet
+- utter_ask_time_left
 - utter_ask_racetype
 - utter_ask_goaltime
 - utter_how_can_i_help
-- utter_greet
-- utter_ask_PB
 - calculate_trail_climb
 - utter_chitchat
 - utter_ask_distance_time
-- convert_distance
 - convert_time
+- convert_time_left
+- convert_distance
 - utter_goaltimefinal
 slots:
   goalminutes:
@@ -79,25 +77,14 @@ slots:
       entity: goalseconds
   goaldistance_km:
     type: text
-    influence_conversation: true
     mappings:
     - type: from_entity
       entity: goaldistance_km
   goaldistance_m:
     type: text
-    influence_conversation: true
     mappings:
     - type: from_entity
       entity: goaldistance_m
-  # goaldistanceunit:
-  #   type: categorical
-  #   influence_conversation: true
-  #   values:
-  #   - km
-  #   - m
-  #   mappings:
-  #   - type: from_entity
-  #     entity: goaldistanceunit
   racetype:
     type: categorical
     influence_conversation: true
@@ -122,28 +109,26 @@ slots:
     mappings:
     - type: from_entity
       entity: ascent
-  time_left:
+  time_left_weeks:
     type: text
-    influence_conversation: true
     mappings:
     - type: from_entity
-      entity: time_left
-  time_left_unit:
-    type: categorical
-    influence_conversation: true
-    values:
-    - year
-    - day
-    - month
-    mappings:
-    - type: from_entity
-      entity: time_left_unit
-  pb:
+      entity: time_left_weeks
+  time_left_years:
     type: text
-    influence_conversation: true
     mappings:
     - type: from_entity
-      entity: pb
+      entity: time_left_years
+  time_left_months:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: time_left_months
+  time_left_days:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: time_left_days
   goaltimefinal:
     type: text
     influence_conversation: true
@@ -153,16 +138,12 @@ slots:
     type: text
     influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: goaldistancefinal
-forms:
-  race_info_form:
-    ignored_intents:
-    - chitchat
-    required_slots:
-    - goaldistance_km
-    # - goaltimefinal
-    
+    - type: custom
+  time_leftfinal:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
 responses:
   utter_greet:
   - text: Hey! I am an AI generated bot ready to help you improve you running form.
@@ -223,9 +204,9 @@ responses:
   utter_ask_distance_time:
   - text: How long and what distance do you want to run?
   utter_goaltimefinal:
-  - text: "The total time in seconds is {goaltimefinal}"
+  - text: The total time in seconds is {goaltimefinal}
   utter_goaldistancefinal:
-  - text: "The total distance in meters is {goaldistancefinal}"
+  - text: The total distance in meters is {goaldistancefinal}
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
