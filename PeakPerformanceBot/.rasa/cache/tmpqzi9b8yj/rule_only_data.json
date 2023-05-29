@@ -1,9 +1,0 @@
-{
-  "rule_only_slots": [
-    "racetype",
-    "goaldistanceunit"
-  ],
-  "rule_only_loops": [
-    "race_info_form"
-  ]
-}

@@ -1,12 +1,18 @@
 version: '3.1'
 intents:
 - affirm
+- ask_for_help
 - bot_challenge
 - chitchat:
     is_retrieval_intent: true
     used_entities:
     - ascent
-    - current_form
+    - ascent_number
+    - climb_ratio
+    - current_fitness
+    - descent
+    - descent_number
+    - descent_ratio
     - goaldistance_km
     - goaldistance_m
     - goaldistancefinal
@@ -15,14 +21,19 @@ intents:
     - goalseconds
     - goaltimefinal
     - racetype
-    - time_left_years
-    - time_left_weeks
-    - time_left_months
     - time_left_days
+    - time_left_months
+    - time_left_weeks
+    - time_left_years
+    - time_leftfinal
+    - training_plan
 - deny
 - goodbye
 - greet
+- i_want_to_run
 - inform_ascent
+- inform_descent
+- inform_fitness
 - inform_general
 - inform_goaldistance
 - inform_goaltime
@@ -32,32 +43,50 @@ intents:
 - recreational_runner
 entities:
 - goaldistance_km
-- time_left_years
-- time_left_weeks
 - time_left_months
-- time_left_days
-- goalhours
-- racetype
-- goaldistance_m
-- goalminutes
-- goalseconds
-- current_form
+- descent
 - ascent
+- racetype
+- goalhours
+- current_fitness
+- time_left_weeks
+- goaldistance_m
+- goalseconds
+- goalminutes
+- time_left_years
+- time_left_days
+- time_leftfinal
 - goaltimefinal
 - goaldistancefinal
+- ascent_number
+- descent_number
+- climb_ratio
+- descent_ratio
+- training_plan
 actions:
-- utter_goaldistancefinal
+- convert_ascent
 - utter_greet
-- utter_ask_time_left
-- utter_ask_racetype
-- utter_ask_goaltime
-- utter_how_can_i_help
-- calculate_trail_climb
-- utter_chitchat
-- utter_ask_distance_time
-- convert_time
-- convert_time_left
+- utter_ask_goaltimefinal
+- utter_ask_time_leftfinal
+- action_check_slots_filled
+- utter_ask_ascent
 - convert_distance
+- calculate_trail_descent
+- convert_time_left
+- utter_ask_current_fitness
+- calculate_trail_climb
+- utter_give_training_plan
+- convert_descent
+- utter_ask_descent
+- action_define_training
+- convert_time
+- recreational_runner
+- utter_chitchat
+- utter_how_can_i_help
+- utter_ask_goaldistancefinal
+- utter_ask_for_help
+- utter_ask_racetype
+- utter_goaldistancefinal
 - utter_goaltimefinal
 slots:
   goalminutes:
@@ -94,21 +123,18 @@ slots:
     mappings:
     - type: from_entity
       entity: racetype
-  current_form:
-    type: categorical
-    influence_conversation: true
-    values:
-    - good
-    - bad
-    mappings:
-    - type: from_entity
-      entity: current_form
   ascent:
     type: text
     influence_conversation: true
     mappings:
     - type: from_entity
       entity: ascent
+  descent:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: descent
   time_left_weeks:
     type: text
     mappings:
@@ -129,6 +155,11 @@ slots:
     mappings:
     - type: from_entity
       entity: time_left_days
+  current_fitness:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: current_fitness
   goaltimefinal:
     type: text
     influence_conversation: true
@@ -139,14 +170,41 @@ slots:
     influence_conversation: true
     mappings:
     - type: custom
+  ascent_number:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+  descent_number:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
   time_leftfinal:
     type: text
     influence_conversation: true
     mappings:
     - type: custom
+  climb_ratio:
+    type: text
+    mappings:
+    - type: custom
+  descent_ratio:
+    type: text
+    mappings:
+    - type: custom
+  training_plan:
+    type: text
+    mappings:
+    - type: custom
+  ready:
+    type: bool
+    influence_conversation: true
+    mappings:
+    - type: custom
 responses:
   utter_greet:
-  - text: Hey! I am an AI generated bot ready to help you improve you running form.
+  - text: Hey! I am an AI generated bot ready to help you improve you running performance.
   utter_start:
   - text: Start by telling me what type of races you are into. Road, track or trail running?
   utter_how_can_i_help:
@@ -160,29 +218,22 @@ responses:
   - text: Sure! What distance and time are you aiming for?
   utter_did_that_help:
   - text: Did that help you?
-  utter_ask_goaldistance:
+  utter_ask_goaldistancefinal:
   - text: What distance do you want to run?
   - text: How long is the race?
   - text: In order to set the training plan, I need to know what distance you want to run.
   utter_ask_goaldistanceunit:
   - text: In what unit is distance given? Meters or kilometers?
-  utter_ask_goaltime:
+  utter_ask_goaltimefinal:
   - text: How fast do you want to run?
   - text: What's your goal time?
   - text: To better define the training plan, I need to know how fast you want to run.
   utter_ask_racetype:
   - text: What type of race is it? Road, track, or trail?
-  utter_ask_pb:
-  - text: Do you have a previous PB in this distance?
-  - text: What is your previous PB in the distance?
-  utter_ask_time_left:
+  utter_ask_time_leftfinal:
   - text: How long until the race?
   - text: How much time is left until the race?
   - text: How much time do you have to prepare for the race?
-  utter_ask_current_form_road:
-  - text: How good is your current form? For example, how fast can you run 1000m or 10km flat right now?
-  utter_hard_road_goal:
-  - text: That is a tough goal, but I'm certain you'll achieve it with the right mindset and my help.
   utter_big_climb:
   - text: That's a lot of climb! I'll take that into account on the training plan. Be ready to work on your uphill technic and strength.
   utter_small_climb:
@@ -201,12 +252,37 @@ responses:
   - text: God speed
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
-  utter_ask_distance_time:
-  - text: How long and what distance do you want to run?
   utter_goaltimefinal:
   - text: The total time in seconds is {goaltimefinal}
   utter_goaldistancefinal:
   - text: The total distance in meters is {goaldistancefinal}
+  utter_climb_ratio:
+  - text: The competition climb ratio is {goaldistancefinal}
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  utter_ask_current_fitness:
+  - text: From 1 to 10, how would you rate your current fitness level? (1-no shape; 10-WR breaking shape)
+  utter_give_training_plan:
+  - text: Here is your training plan {training_plan}
+  utter_chitchat/how_are_you:
+  - text: I am great because I am in Prof. Paulo Novais class.
+  utter_chitchat/jokes:
+  - text: Did you hear about the restaurant on the moon? Great food, no atmosphere.
+  - text: I'm reading a book about anti-gravity. It's impossible to put down!
+  - text: Why don't skeletons fight each other? They don't have the guts.
+  - text: Why don't eggs tell jokes? Because they might crack up!
+  - text: How do you organize a space party? You planet!
+  - text: I used to play piano by ear. Now I use my hands.
+  - text: What do you call fake spaghetti? An impasta!
+  - text: How do you catch a squirrel? Climb a tree and act like a nut!
+  - text: Why don't scientists trust atoms? Because they make up everything!
+  - text: How does a penguin build its house? Igloos it together!
+  utter_chitchat/emotions:
+  - text: I don't really care, but try to use those emotions to improve your training rentability.
+  utter_chitchat/ask_name:
+  - text: My name is Peak Performance Bot and I am here to help you achieve your hardest running goals.
+  utter_chitchat/ask_weather:
+  - text: The sun is shinning and so are you!
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false

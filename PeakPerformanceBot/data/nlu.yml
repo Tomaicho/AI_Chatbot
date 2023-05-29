@@ -17,6 +17,7 @@ nlu:
     - good afternoon
     - ahoj
     - ciao
+    - ola
 - intent: goodbye
   examples: |
     - cu
@@ -60,16 +61,24 @@ nlu:
   examples: |
     - What's your name?
     - May I know your name?
+- intent: chitchat/ask_weather
+  examples: |
+    - What's the weather like today?
+    - Does it look sunny outside today?
+    - Oh, do you mind checking the weather for me please?
+    - How's the weather?
 - intent: i_want_to_run
   examples: |
     - I want to run
     - I need your help to prepare for a race
     - I want to get better in running
+    - i need your help to prepare for a race
 - intent: ask_for_help
   examples: |
     - can you help me run faster on my next race?
     - are you able to make me run faster?
     - do you have some good training plans for me?
+    - can you help me prepare for a race?
 - intent: recreational_runner
   examples: |
     - I just want to improve my physical shape in general
@@ -79,50 +88,46 @@ nlu:
     - I will go to the race just for fun
     - I don't worry about the time
     - I don't worry about my performance
+    - I don't care about the time
+    - I don't care about the clock
+    - i don't care about the clock
 - intent: inform_racetype
   examples: |
     - it is a [flat](racetype) race
     - it will be a [trail](racetype) running event
     - I am going to run on the [flat](racetype)
-    - I am more into [track](racetypes) competitions
+    - I am more into [track](racetype) competitions
     - [flat](racetype)
     - [trail](racetype)
     - it is a [flat](racetype) competition
     - it is a [road]{"entity": "racetype", "value": "flat"} race
     - it is a [trail](racetype) running race
-
-- intent: inform_general
-  examples: |
-    - I want to run a fast [10km](goaldistance_km) in under [40 minutes](goalminutes) on a [flat](racetype) race.
-    - The race distance is [10 km](goaldistance_km) in [40 minutes](goalminutes) on a [flat](racetype) road.
-    - I want to run a [100 km](goaldistance_km) [trail](racetype) race
-    - how can I run [1500m](goaldistance_m) under [4'](goalminutes)
-    - is it possible for me to run under [6 minutes](goalminutes) on the [2000 meters](goaldistance_m)
-    - I want to run under [30'](goalminutes) in a [10000 metres](goaldistance) [flat](racetype) race
-    - can you help me run under [8'](goalminutes)[30''](goalseconds) in the [3000m](goaldistance_m)
-    - I want to be faster than [2m](goalminutes)[40s](goalseconds) in a [1000m](goaldistance_m) race
-    - break [3 hours](goalhours)
-    - the goal must be beating my last mark of [2h](goalhours)[8'](goalminutes)[30''](goalseconds)
-    - my goal is to go below [2 hours](goalhours) and [30 minutes](goalminutes)
-    - I want to run a [trail](racetype) with [100km](goaldistance_km)
-    - I want to complete the race in less than [10 hours](goalhours)
-    - is it possible for me to run a [5km](goaldistance_km) race in under [25minutes](goalminutes)?
-    - i want to run a [100 km](goaldistance_km) [trail](racetype) race
-    - i want to run in under [10 hours](goalhours)
-
+    - i want to run on a [trail](racetype) running event
+    - i need to prepare for a [trail](racetype) race
+    - it is a [track]{"entity": "racetype", "value": "flat"} race
+    - i need your help to prepare for a [trail](racetype) race
+    - i want to prepare for a [road]{"entity": "racetype", "value": "flat"} race 
 - intent: inform_goaldistance
   examples: |
-    - I want to run a fast [10000m](goaldistance_km)
+    - I want to run a fast [10000m](goaldistance_m)
     - the race distance is [5 kilometers](goaldistance_km)
     - i want to run [100km](goaldistance_km)
     - how can I improve my time for a [5 km's](goaldistance_km) race?
-    - it is [56](goaldistance) [kms](goaldistanceunit)
-    - [100 meters](goaldistance_km)
+    - it is [56 kms](goaldistance_km) long
+    - [100 meters](goaldistance_m)
     - just [1 kilometer](goaldistance_km)
-    - roughly [12300 m's](goaldistance_km)
-
+    - roughly [12300 m's](goaldistance_m)
+    - I want to prepare for a [25000 meters](goaldistance_m) race
+    - the competition is [75 kilometers](goaldistance_km) long
+    - it is [55 km's](goaldistance_km) long
+    - it is [5000 meters](goaldistance_m) long
+    - the race is [12km](goaldistance_km) and [500m](goaldistance_m) long
+    - i want to run a [1 kilometer](goaldistance_km) [track]{"entity": "racetype", "value": "flat"} race
+    - i want to run a [1 kilometer](goaldistance_km) [road]{"entity": "racetype", "value": "flat"} race
 - intent: inform_goaltime
   examples: |
+    - the goal must be beating my last mark of [2h](goalhours)[8'](goalminutes)[30''](goalseconds)
+    - break [3 hours](goalhours)
     - I want to run under [40 minutes](goalminutes)
     - I want to run in [60 seconds](goalseconds)
     - I want to break the [3 hours](goalhours) barrier
@@ -131,24 +136,36 @@ nlu:
     - [2 hours](goalhours) and [20 m](goalminutes)
     - [2 hours](goalhours)[20'](goalminutes) and [30''](goalseconds)
     - I want to break my best of [3h](goalhours) [34m](goalminutes)
-    
+    - i want to finish in under [12 hours](goalhours)
+    - i want to be faster than [6h](goalhours) [34m](goalminutes)
+    - i want to break the [4min](goalminutes) and [45s](goalseconds) barrier
+    - i want to run in under [15 hours](goalhours)
 - intent: inform_ascent
   examples: |
-    - it will have [2000](ascent) meters of ascent
-    - a total of [4500](ascent) positive climb
-    - we're gonna go up [1000](ascent) meters
-    - there are [2300](ascent) meters of climb in total
-    - the toal hillclimb sums up to [1500](ascent) meters
-    - [4600](ascent)m+
-    - 40000 meters
-# - intent: inform_descent
-#   examples: |
-#     - it will have a total of [2000](descent) meters of descent.
-#     - the race course includes [4500](descent) meters of downhill.
-#     - we're gonna go down [1000](descent) meters during the race.
-#     - there are approximately [2300](descent) meters of descent in total.
-#     - [4600](descent)m-
-#     - 40000 meters
+    - it will have [2000 meters of ascent](ascent)
+    - a total of [4500 positive climb](ascent)
+    - there are [2300 meters of climb](ascent) in total
+    - the total sums up to [1500 meters of hillclimb](ascent)
+    - [40000 meters of ascent](ascent)
+    - it will have [3000 meters of ascent](ascent)
+    - a total of [3500 positive climb](ascent)
+    - there are [4000 meters of ascent](ascent)
+    - there are [4000 meters of climb](ascent)
+    - there are [6000 meters of ascent](ascent) in total
+    - there are [5000 meters of climb](ascent)
+- intent: inform_descent
+  examples: |
+    - it will have a total of [2000 meters of descent](descent).
+    - the race course includes [4500 meters of downhill](descent).
+    - [we're gonna go down 1000 meters](descent) during the race.
+    - there are approximately [2300 meters of descent](descent) in total.
+    - [40000 meters of descent](descent)
+    - it will have [2000 meters of downhill](descent)
+    - approximately [5000 meters of descent](ascent)
+    - the race has [2000 meters of downhill](descent)
+    - the race has [2000 meters of descent](descent)
+    - there are [7000 meters of descent](descent) in total
+    - there are [8000 meters of descent](descent)
 - intent: inform_time_left
   examples: |
     - [3 months](time_left_months)
@@ -159,7 +176,45 @@ nlu:
     - around [6weeks](time_left_weeks) left
     - I have [8 weeks](time_left_weeks) left until my race. What should my training plan be?
     - the competition is in [3 days](time_left_days)
-    
+    - [5 months](time_left_months) still
+    - the race will be in [1 year](time_left_years) and [6 months](time_left_months)
+    - around [2 years](time_left_years), [6 months](time_left_months) and [3 weeks](time_left_weeks)
+    - the race will be in [5 weeks](time_left_weeks)
+    - the competition is exactly [56km](goaldistance_km) and [400m](goaldistance_m)
+    - there are still [7 months](time_left_months) left for the race
+    - i still have [13 weeks](time_left_weeks) to prepare
+    - i have [5 months](time_left_months) and [2 weeks](time_left_weeks) to prepare
+    - there are still [9 months](time_left_months) left for the race
+- intent: inform_general
+  examples: |
+    - I want to run a fast [10km](goaldistance_km) in under [40 minutes](goalminutes) on a [flat](racetype) race.
+    - The race distance is [10 km](goaldistance_km) in [40 minutes](goalminutes) on a [flat](racetype) road.
+    - I want to run a [100 km](goaldistance_km) [trail](racetype) race
+    - how can I run [1500m](goaldistance_m) under [4'](goalminutes)
+    - is it possible for me to run under [6 minutes](goalminutes) on the [2000 meters](goaldistance_m)
+    - I want to run under [30'](goalminutes) in a [10000 metres](goaldistance) [flat](racetype) race
+    - can you help me run under [8'](goalminutes)[30''](goalseconds) in the [3000m](goaldistance_m)
+    - I want to be faster than [2m](goalminutes)[40s](goalseconds) in a [1000m](goaldistance_m) race
+    - I want to run a [trail](racetype) with [100km](goaldistance_km)
+    - is it possible for me to run a [5km](goaldistance_km) race in under [25minutes](goalminutes)?
+    - i need your help to prepare for a [200 km](goaldistance_km) race in [6 months](time_left_months)
+    - i need your help preparing to run [10000 m](goaldistance_m) in [2 weeks](time_left_weeks).
+    - i need your help to prepare for a [200km](goaldistance_km) race in [6 months](time_left_months)
+    - i need help to run a [75km](goaldistance_km) [trail](racetype) race in under [10 hours](goalhours)
+    - I want to prepare for a [100 km](goaldistance_km) [trail](racetype) race
+    - i want to prepare for a [10000 meters](goaldistance_m) [road]{"entity": "racetype", "value": "flat"} race
+- intent: inform_fitness
+  examples: |
+    - [2](current_fitness)
+    - my fitness level is [10](current_fitness)
+    - [4](current_fitness) is my level of fitness
+    - currently, i would rate myself as a [5](current_fitness)
+    - I rate as a [3](current_fitness)
+    - I'd say [7](current_fitness)
+    - [6](current_fitness)
+    - i would rate myself as a [3](current_fitness)
+    - [7](current_fitness)
+    - [7](current_fitness)
 - intent: affirm
   examples: |
     - yes
@@ -180,6 +235,11 @@ nlu:
     - it is not
     - it isn't
     - no, it's not
+- intent: chitchat
+  examples: |
+    - how's the weather?
+    - how are you?
+    - what's your name?
 - synonym: flat
   examples: |
     - road

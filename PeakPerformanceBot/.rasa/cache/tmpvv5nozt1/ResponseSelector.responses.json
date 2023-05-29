@@ -1,0 +1,54 @@
+{
+  "utter_chitchat/how_are_you": [
+    {
+      "text": "I am great because I am in Prof. Paulo Novais class."
+    }
+  ],
+  "utter_chitchat/jokes": [
+    {
+      "text": "Did you hear about the restaurant on the moon? Great food, no atmosphere."
+    },
+    {
+      "text": "I'm reading a book about anti-gravity. It's impossible to put down!"
+    },
+    {
+      "text": "Why don't skeletons fight each other? They don't have the guts."
+    },
+    {
+      "text": "Why don't eggs tell jokes? Because they might crack up!"
+    },
+    {
+      "text": "How do you organize a space party? You planet!"
+    },
+    {
+      "text": "I used to play piano by ear. Now I use my hands."
+    },
+    {
+      "text": "What do you call fake spaghetti? An impasta!"
+    },
+    {
+      "text": "How do you catch a squirrel? Climb a tree and act like a nut!"
+    },
+    {
+      "text": "Why don't scientists trust atoms? Because they make up everything!"
+    },
+    {
+      "text": "How does a penguin build its house? Igloos it together!"
+    }
+  ],
+  "utter_chitchat/emotions": [
+    {
+      "text": "I don't really care, but try to use those emotions to improve your training rentability."
+    }
+  ],
+  "utter_chitchat/ask_name": [
+    {
+      "text": "My name is Peak Performance Bot and I am here to help you achieve your hardest running goals."
+    }
+  ],
+  "utter_chitchat/ask_weather": [
+    {
+      "text": "The sun is shinning and so are you!"
+    }
+  ]
+}

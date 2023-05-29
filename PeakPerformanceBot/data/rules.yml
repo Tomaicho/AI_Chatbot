@@ -22,36 +22,104 @@ rules:
   - intent: i_want_to_run
   - action: utter_i_want_to_run
 
-# - rule: activate form
-#   steps:
-#   - intent: inform_racetype
-#   - slot_was_set:
-#     - racetype: "flat"
-#   - action: race_info_form
-#   - active_loop: race_info_form
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
 
-# - rule: submit form
+- rule: Recreational runner sets goaltime to 0
+  steps:
+  - intent: reacreational_runner
+  - action: recreational_runner
+
+# - rule: respond to chitchat
+#   steps:
+#   - intent: chitchat
+#   - action: utter_chitchat 
+
+- rule: slots ready
+  condition:
+  - slot_was_set:
+    - ready: true
+  steps:
+  - action: action_define_training
+
+- rule: check slots 1
+  condition:
+  - slot_was_set:
+    - ready: false
+  steps:
+  - intent:
+  - action: action_check_slots_filled
+
+# - rule: check slots 2
 #   condition:
-#   - active_loop: race_info_form
-  # steps:
-  # - action: race_info_form
-  # - active_loop: null
-  # - slot_was_set:
-  #   - requested_slot: null
-  # - action: convert_distance
-  # - action: utter_goaldistancefinal
-
-# - rule: Maintain goaltime_form until time is given
-#   - active_loop: goaltime_form
-#   steps:
-#   # Form is deactivated
-#   - action: goaltime_form
-#   - active_loop: null
+#   - action: action_check_slots_filled
 #   - slot_was_set:
-#     - or:
-#       - goalhours
-#       - goalminutes
-#       - goalseconds
-#   # The actions we want to run when the form is submitted.
-#   - action: utter_submit
-#   - action: utter_slots_values
+#     - ready: "no"
+#   - intent: inform_racetype
+#   steps:
+#   - action: action_check_slots_filled
+
+# - rule: check slots 3
+#   condition:
+#   - action: action_check_slots_filled
+#   - slot_was_set:
+#     - ready: "no"
+#   - intent: inform_goaldistance
+#   steps:
+#   - action: action_check_slots_filled
+
+# - rule: check slots 4
+#   condition:
+#   - action: action_check_slots_filled
+#   - slot_was_set:
+#     - ready: "no"
+#   - intent: inform_goaltime
+#   steps:
+#   - action: action_check_slots_filled
+
+# - rule: check slots 5
+#   condition:
+#   - action: action_check_slots_filled
+#   - slot_was_set:
+#     - ready: "no"
+#   - intent: inform_ascent
+#   steps:
+#   - action: action_check_slots_filled
+
+# - rule: check slots 6
+#   condition:
+#   - action: action_check_slots_filled
+#   - slot_was_set:
+#     - ready: "no"
+#   - intent: inform_descent
+#   steps:
+#   - action: action_check_slots_filled
+
+# - rule: check slots 7
+#   condition:
+#   - action: action_check_slots_filled
+#   - slot_was_set:
+#     - ready: "no"
+#   - intent: inform_time_left
+#   steps:
+#   - action: action_check_slots_filled
+
+# - rule: check slots 8
+#   condition:
+#   - action: action_check_slots_filled
+#   - slot_was_set:
+#     - ready: "no"
+#   - intent: inform_fitness
+#   steps:
+#   - action: action_check_slots_filled
+
+# - rule: check slots 9
+#   condition:
+#   - action: action_check_slots_filled
+#   - slot_was_set:
+#     - ready: "no"
+#   - intent: inform_general
+#   steps:
+#   - action: action_check_slots_filled

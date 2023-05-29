@@ -1,0 +1,6 @@
+{
+  "rule_only_slots": [
+    "ready"
+  ],
+  "rule_only_loops": []
+}
